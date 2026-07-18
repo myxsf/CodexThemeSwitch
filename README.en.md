@@ -17,6 +17,11 @@
   Unofficial. Does not modify <code>.app</code> / <code>app.asar</code> / WindowsApps.
 </p>
 
+<p align="center">
+  <a href="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml"><img src="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
+</p>
+
 ## Gallery
 
 The first image is a privacy-cropped `2.2.8` live gallery containing only the
@@ -90,6 +95,7 @@ More detail:
 - Windows: [`windows/SKILL.md`](./windows/SKILL.md)
 - Paths: [`docs/platforms.md`](./docs/platforms.md)
 - Project notes: [`docs/PROJECT.md`](./docs/PROJECT.md)
+- `2.2.8` cross-platform install validation: [`docs/RELEASE-VALIDATION-v2.2.8.md`](./docs/RELEASE-VALIDATION-v2.2.8.md)
 
 ## Feedback & contributions
 

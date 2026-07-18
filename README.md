@@ -17,6 +17,11 @@
   非 OpenAI 官方产品。不修改 <code>.app</code> / <code>app.asar</code> / WindowsApps。
 </p>
 
+<p align="center">
+  <a href="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml"><img src="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
+</p>
+
 ## 效果预览
 
 下面是 `2.2.8` 的脱敏实机截图，仅保留 Hero 与原生建议卡区域：
@@ -89,6 +94,7 @@
 - Windows：[`windows/SKILL.md`](./windows/SKILL.md)
 - 路径对照：[`docs/platforms.md`](./docs/platforms.md)
 - 项目记录：[`docs/PROJECT.md`](./docs/PROJECT.md)
+- `2.2.8` 跨平台安装验证：[`docs/RELEASE-VALIDATION-v2.2.8.md`](./docs/RELEASE-VALIDATION-v2.2.8.md)
 
 ## 反馈与贡献
 
