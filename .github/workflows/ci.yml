@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: macOS static tests
-        run: NODE="$(command -v node)" SKIP_LIVE_DOCTOR=true bash -x ./macos/tests/run-tests.sh
+        run: NODE="$(command -v node)" SKIP_LIVE_DOCTOR=true ./macos/tests/run-tests.sh
       - name: Windows cross-platform static tests
         run: ./windows/tests/run-tests.sh
