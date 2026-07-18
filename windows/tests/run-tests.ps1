@@ -16,6 +16,9 @@ $buildScript = Get-Content -LiteralPath (Join-Path $windowsRoot 'scripts\build-t
 if ($buildScript -notmatch 'LoadWithPartialName' -or $buildScript -match "'WindowsBase\.dll'") {
   throw 'WPF build references must resolve installed assembly locations instead of relative DLL names.'
 }
+foreach ($assemblyName in @('System','System.Core','System.Web.Extensions','System.Xaml','WindowsBase','PresentationCore','PresentationFramework')) {
+  if ($buildScript -notmatch [regex]::Escape("'$assemblyName'")) { throw "WPF build assembly is missing: $assemblyName" }
+}
 
 $nodeCommand = Get-Command node.exe -ErrorAction SilentlyContinue
 if (-not $nodeCommand) { $nodeCommand = Get-Command node -ErrorAction SilentlyContinue }

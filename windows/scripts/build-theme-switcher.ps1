@@ -15,7 +15,7 @@ Remove-Item -LiteralPath $OutputPath -Force -ErrorAction SilentlyContinue
 
 $assemblyNames = @(
   'System', 'System.Core', 'System.Web.Extensions',
-  'WindowsBase', 'PresentationCore', 'PresentationFramework'
+  'System.Xaml', 'WindowsBase', 'PresentationCore', 'PresentationFramework'
 )
 $references = foreach ($assemblyName in $assemblyNames) {
   $assembly = [Reflection.Assembly]::LoadWithPartialName($assemblyName)
