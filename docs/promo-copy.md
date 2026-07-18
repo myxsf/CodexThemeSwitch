@@ -16,34 +16,25 @@ Codex 也能「换皮肤」了。
 开源地址：  
 https://github.com/myxsf/CodexThemeSwitch
 
-感谢 Passion8 赞助：https://passion8.cc/register?aff=TuPe
-
----
-
 ## 中版（公众号 / 即刻 / 小红书）
 
 标题可选：
 
 1. 我给 Codex 做了个皮肤商店：从人民的 AI 到初音未来  
 2. 写代码也能有爱豆同款桌面  
-3. Codex Dream Skin：不拆包，也能把官方界面变成你的
+3. Codex Theme Switch：不拆包，也能把官方界面变成你的
 
 正文：
 
 还在用默认灰白 Codex？有点可惜。
 
-**Codex Dream Skin** 是一套给 Codex 桌面端用的外部主题方案：  
+**Codex Theme Switch** 是一套给 Codex 桌面端用的外部主题方案：
 用本机 CDP 把样式和横幅「贴」上去，**不修改官方 `.app` / `app.asar`**，侧栏、建议卡、项目选择、输入框都是原生可点。
 
 你看到的热巴紫夜、千玺清透、Miku 蓝粉、KUN 黑金、ENFP 小宇宙……都是同一套能力换图 + 换色的结果。
 
 开源仓库（含效果图与安装脚本）：  
 https://github.com/myxsf/CodexThemeSwitch
-
-想稳定接模型的话，可以走赞助方 Passion8（与换肤分开配置）：  
-https://passion8.cc/register?aff=TuPe
-
----
 
 ## 长版钩子（发帖置顶）
 

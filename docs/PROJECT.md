@@ -1,4 +1,4 @@
-# Codex Dream Skin · 项目记录
+# Codex Theme Switch · 项目记录
 
 > 本地归档说明。面向维护者，不是用户安装手册。  
 > 仓库首页：[`../README.md`](../README.md)（中文）· [`../README.en.md`](../README.en.md)（English）  
@@ -8,7 +8,7 @@
 
 ## 1. 它是什么
 
-**Codex Dream Skin** 是给 **OpenAI Codex 桌面端** 用的**外部主题 / 换肤**方案：
+**Codex Theme Switch（Codex 主题衣橱）** 是给 **OpenAI Codex 桌面端** 用的**外部主题 / 换肤**方案：
 
 - 本机 **CDP** 注入 CSS + 装饰 DOM
 - **不修改**官方 `.app` / `app.asar` / WindowsApps / 代码签名
@@ -27,8 +27,7 @@
 | 素材包 | 微信传播的 Win / Mac 皮肤包（RAR/ZIP），含注入脚本与主题资源 |
 | 安全审 | 核对是否改 asar、是否静默劫持 API；结论：以本机 CDP 注入为主，开源时明确禁止静默中转劫持 |
 | 整理开源 | 按平台拆成 `macos/`、`windows/`，补 README 图库与安装入口 |
-| 本地美化 | Mac 本机引擎装在 `~/.codex/codex-dream-skin-studio`；CSS 走浅色壳 + 可选底部赞助 chip |
-| 赞助 | Passion8（`aff=TuPe`）写在 README 顶部；强调满血中转卖点，且与换肤配置隔离 |
+| 本地美化 | Mac 本机引擎装在 `~/.codex/codex-dream-skin-studio`；CSS 走主题壳与原生控件镜像 |
 | 图库 | `docs/images/gallery/skin-01`～`08`；粉系定制 → 财神打工 → 红白科幻… |
 | i18n | 默认中文 `README.md`，英文 `README.en.md`，顶部互链 |
 
@@ -55,7 +54,7 @@
 ## 4. 仓库结构
 
 ```text
-Codex-Dream-Skin/
+CodexThemeSwitch/
 ├── README.md              # 默认中文
 ├── README.en.md           # English
 ├── docs/
@@ -63,8 +62,7 @@ Codex-Dream-Skin/
 │   ├── platforms.md       # Win/Mac 路径与能力矩阵
 │   ├── promo-copy.md      # 宣传文案（朋友圈等，注意肖像/IP）
 │   └── images/
-│       ├── gallery/       # README 效果图 skin-01…08
-│       └── sponsor-passion8.png
+│       └── gallery/       # README 效果图 skin-01…08
 ├── macos/                 # Mac 脚本、资源、LICENSE、SKILL
 └── windows/               # Windows PowerShell / 注入脚本
 ```
@@ -105,22 +103,11 @@ Windows 状态目录见 `platforms.md`（`%LOCALAPPDATA%\CodexDreamSkin`）。
 
 ---
 
-## 7. 赞助（Passion8）
-
-- 注册链：`https://passion8.cc/register?aff=TuPe`
-- README 调性：更智能的连接 / 满血 AI 中转 / 官方模型、无降智无套壳 / 一行接 Codex·Claude Code·Grok  
-- 固定声明：换肤与 API 配置互相独立  
-
-Logo 资源：`docs/images/sponsor-passion8.png`（及 svg）。
-
----
-
 ## 8. 常用维护动作
 
 | 动作 | 说明 |
 |------|------|
 | 换图库图 | 替换 `docs/images/gallery/skin-XX.jpg`，同步改 README 两份 caption |
-| 改赞助文案 | 同时改 `README.md` 与 `README.en.md` |
 | 发版推送 | 在本仓库目录 `git add` → `commit` → `push origin main` |
 | Mac 本机主题 | 改 `~/.codex/codex-dream-skin-studio` 的 CSS/inject；与 GitHub 源码可不同步，属本机实验位 |
 
@@ -142,8 +129,7 @@ Logo 资源：`docs/images/sponsor-passion8.png`（及 svg）。
 | 项 | 说明 |
 |----|------|
 | 本机已装引擎 | `~/.codex/codex-dream-skin-studio` |
-| Passion8 主站 / NewAPI | 独立业务；本仓只做赞助致谢与配置隔离说明 |
-| 中转站其它项目 | 勿与本仓混目录；本仓可独立于 New-api 工作区存在 |
+| API 中转项目 | 与本仓无关；本项目不会修改用户的供应商配置或密钥 |
 
 ---
 

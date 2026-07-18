@@ -16,3 +16,19 @@ jobs:
         run: NODE="$(command -v node)" SKIP_LIVE_DOCTOR=true ./macos/tests/run-tests.sh
       - name: Windows cross-platform static tests
         run: ./windows/tests/run-tests.sh
+
+  windows-release-smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download published Windows release
+        shell: pwsh
+        run: |
+          Invoke-WebRequest `
+            -Uri "https://github.com/myxsf/CodexThemeSwitch/releases/download/v2.2.8/Codex-Theme-Wardrobe-v2.2.8-windows.zip" `
+            -OutFile "$env:RUNNER_TEMP\Codex-Theme-Wardrobe-v2.2.8-windows.zip"
+      - name: Simulate clean Windows install
+        shell: powershell
+        run: |
+          .\windows\tests\release-install-smoke.ps1 `
+            -ArchivePath "$env:RUNNER_TEMP\Codex-Theme-Wardrobe-v2.2.8-windows.zip"

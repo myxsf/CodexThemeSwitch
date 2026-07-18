@@ -1,4 +1,4 @@
-# Codex Dream Skin
+# Codex Theme Switch
 
 <p align="center">
   <a href="./README.md">中文</a> · <strong>English</strong>
@@ -15,31 +15,6 @@
 
 <p align="center">
   Unofficial. Does not modify <code>.app</code> / <code>app.asar</code> / WindowsApps.
-</p>
-
-## Sponsors
-
-<p align="center">
-  <a href="https://passion8.cc/register?aff=TuPe">
-    <img src="docs/images/sponsor-passion8.png" alt="Passion8" height="72">
-  </a>
-</p>
-
-<p align="center">
-  <strong>Smarter Connections · Passionate Creation</strong><br>
-  <sub>Connect AI · Power Creation</sub>
-</p>
-
-<p align="center">
-  Thanks to <a href="https://passion8.cc/register?aff=TuPe"><strong>passion8.cc</strong></a> for sponsoring this project.<br>
-  Full-power AI gateway: official models, no silent downgrades, no wrapper shells.<br>
-  One-line setup for Codex / Claude Code / Grok.
-</p>
-
-<p align="center">
-  <sub>
-    Theme install and API config stay separate — this project never rewrites your provider settings.
-  </sub>
 </p>
 
 ## Gallery
