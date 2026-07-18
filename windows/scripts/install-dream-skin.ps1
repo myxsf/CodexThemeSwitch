@@ -51,7 +51,7 @@ $wardrobeExe = Join-Path $script:RepositoryRoot 'Codex Theme Wardrobe.exe'
 
 if (-not $NoShortcuts) {
   $shell = New-Object -ComObject WScript.Shell
-  $desktop = [Environment]::GetFolderPath('Desktop')
+  $desktop = Resolve-UserDesktopPath
   $startMenu = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs'
   @(
     (Join-Path $desktop 'Codex Dream Skin.lnk'),

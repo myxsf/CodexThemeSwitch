@@ -66,7 +66,9 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   $statePath = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\state.json'
   if (-not (Test-Path -LiteralPath $wardrobe)) { throw 'Installed WPF wardrobe executable is missing.' }
   if (-not (Test-Path -LiteralPath $statePath)) { throw 'Initial runtime state is missing.' }
-  $desktopShortcut = Join-Path ([Environment]::GetFolderPath('Desktop')) 'Codex Theme Wardrobe.lnk'
+  $desktopPath = [Environment]::GetFolderPath('Desktop')
+  if ([string]::IsNullOrWhiteSpace($desktopPath)) { $desktopPath = Join-Path $env:USERPROFILE 'Desktop' }
+  $desktopShortcut = Join-Path $desktopPath 'Codex Theme Wardrobe.lnk'
   $startMenuShortcut = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\Codex Theme Wardrobe.lnk'
   if (-not (Test-Path -LiteralPath $desktopShortcut)) { throw 'Desktop wardrobe shortcut is missing.' }
   if (-not (Test-Path -LiteralPath $startMenuShortcut)) { throw 'Start Menu wardrobe shortcut is missing.' }

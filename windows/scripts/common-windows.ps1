@@ -16,6 +16,15 @@ function New-SkinStateRoot {
   New-Item -ItemType Directory -Force -Path $script:StateRoot | Out-Null
 }
 
+function Resolve-UserDesktopPath {
+  $desktop = [Environment]::GetFolderPath('Desktop')
+  if ([string]::IsNullOrWhiteSpace($desktop) -and -not [string]::IsNullOrWhiteSpace($env:USERPROFILE)) {
+    $desktop = Join-Path $env:USERPROFILE 'Desktop'
+  }
+  if ([string]::IsNullOrWhiteSpace($desktop)) { throw 'The current user Desktop path could not be resolved.' }
+  return $desktop
+}
+
 function Resolve-CodexPackage {
   $package = Get-AppxPackage -Name OpenAI.Codex | Sort-Object Version -Descending | Select-Object -First 1
   if (-not $package) { throw 'The official OpenAI.Codex Store package is not installed for this user.' }

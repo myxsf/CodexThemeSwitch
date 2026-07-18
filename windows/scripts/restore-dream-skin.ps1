@@ -36,7 +36,7 @@ if ($RestartCodex) {
 
 Write-SkinState -Port $Port -InjectorPid 0 -ThemeId 'original' -NodePath $node -CodexExe $exe -Session 'off'
 if ($Uninstall) {
-  $desktop = [Environment]::GetFolderPath('Desktop')
+  $desktop = Resolve-UserDesktopPath
   $startMenu = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs'
   @((Join-Path $desktop 'Codex Theme Wardrobe.lnk'), (Join-Path $startMenu 'Codex Theme Wardrobe.lnk')) |
     ForEach-Object { Remove-Item -LiteralPath $_ -Force -ErrorAction SilentlyContinue }
