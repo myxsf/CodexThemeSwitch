@@ -33,7 +33,8 @@ GitHub Actions `windows-latest` 使用与交付包相同的目录结构模拟全
 当前源码生成的 Windows ZIP 已在 GitHub Actions 通过完整新用户安装模拟：
 https://github.com/myxsf/CodexThemeSwitch/actions/runs/29653100900
 
-发布后的公开 Windows ZIP 还会通过手动 `workflow_dispatch` 下载 Release 资产再复测。
+公开发布后的 Windows ZIP 已由 `workflow_dispatch` 从 GitHub Release 地址重新下载并通过同一套完整安装模拟：
+https://github.com/myxsf/CodexThemeSwitch/actions/runs/29653206699
 
 ## 验证边界
 
