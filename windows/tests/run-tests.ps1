@@ -12,6 +12,11 @@ Get-ChildItem -LiteralPath $windowsRoot -Recurse -Filter '*.ps1' | ForEach-Objec
 }
 if ($parseFailed) { throw 'PowerShell syntax validation failed.' }
 
+$buildScript = Get-Content -LiteralPath (Join-Path $windowsRoot 'scripts\build-theme-switcher.ps1') -Raw
+if ($buildScript -notmatch 'LoadWithPartialName' -or $buildScript -match "'WindowsBase\.dll'") {
+  throw 'WPF build references must resolve installed assembly locations instead of relative DLL names.'
+}
+
 $nodeCommand = Get-Command node.exe -ErrorAction SilentlyContinue
 if (-not $nodeCommand) { $nodeCommand = Get-Command node -ErrorAction SilentlyContinue }
 if (-not $nodeCommand) {
