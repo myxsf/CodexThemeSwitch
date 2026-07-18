@@ -1,0 +1,721 @@
+/* Trusted structural profile: Retro QQ 2007. This file is selected instead of
+   the Inspiration stylesheet, never layered on top of it. */
+
+html[data-dream-theme="qq2007"] {
+  color-scheme: light !important;
+  --qq-title-h: 34px;
+  --qq-toolbar-h: 50px;
+  --qq-top: 84px;
+  --qq-bottom: 30px;
+  --qq-left: 250px;
+  --qq-right: 210px;
+  --qq-gutter: 6px;
+  --qq-canvas-left: 0px;
+  --qq-canvas-width: 100vw;
+  --qq-canvas-height: 100vh;
+  --qq-panel-header-h: 34px;
+  --qq-nav-row-h: 30px;
+  --qq-composer-h: 112px;
+  --qq-composer-toolbar-h: 30px;
+  --qq-font-sm: 12px;
+  --qq-font-md: 13px;
+  --qq-font-lg: 15px;
+  --qq-window-buttons-w: 91px;
+  --qq-window-buttons-h: 27px;
+  --qq-blue: #1469c9;
+  --qq-blue-dark: #0751b1;
+  --qq-line: #7ca4c4;
+  --qq-pale: #eaf5ff;
+  --qq-panel: #f8fcff;
+  --qq-text: #132236;
+  font-family: Tahoma, "Microsoft YaHei", "PingFang SC", SimSun, sans-serif !important;
+  background: #75a9da !important;
+}
+
+html[data-dream-theme="qq2007"],
+html[data-dream-theme="qq2007"] body,
+html[data-dream-theme="qq2007"] #root {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background: linear-gradient(#83b7e6, #5d99d2) !important;
+}
+
+html[data-dream-theme="qq2007"],
+html[data-dream-theme="qq2007"] body {
+  scroll-behavior: auto !important;
+}
+
+html[data-dream-theme="qq2007"] #codex-dream-skin-chrome,
+html[data-dream-theme="qq2007"] #codex-dream-skin-chrome * {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-dream-theme="qq2007"] #codex-dream-skin-chrome {
+  position: fixed !important;
+  top: 0 !important;
+  left: var(--qq-canvas-left) !important;
+  z-index: 45 !important;
+  width: var(--qq-canvas-width) !important;
+  height: var(--qq-canvas-height) !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  color: var(--qq-text);
+  text-shadow: none !important;
+}
+
+/* Windows XP / QQ 2007 title bar */
+html[data-dream-theme="qq2007"] .qq2007-titlebar {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--qq-title-h);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 var(--qq-gutter);
+  border: 1px solid #0b4d9f;
+  border-bottom-color: #1b79d6;
+  background-color: #0c64c5;
+  background-image: var(--dream-skin-art);
+  background-size: var(--qq-canvas-width) var(--qq-canvas-height);
+  background-position: left top;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: var(--qq-font-lg);
+  font-weight: 700;
+  text-shadow: 0 1px 1px #063b83;
+  box-shadow: inset 0 1px rgba(255,255,255,.45);
+  pointer-events: auto !important;
+  -webkit-app-region: drag !important;
+  user-select: none !important;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-titlebar > * { visibility: hidden; }
+
+html[data-dream-theme="qq2007"] .qq2007-penguin {
+  width: 22px;
+  font-size: 19px;
+  filter: drop-shadow(0 1px 0 #063a79);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-titlebar b {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-window-buttons {
+  position: absolute;
+  top: calc(var(--qq-gutter) / 2);
+  right: calc(var(--qq-gutter) / 2);
+  width: var(--qq-window-buttons-w);
+  height: var(--qq-window-buttons-h);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-window-buttons i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  opacity: 0;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
+
+/* Primary action toolbar */
+html[data-dream-theme="qq2007"] .qq2007-toolbar {
+  position: absolute;
+  top: var(--qq-title-h);
+  left: var(--qq-gutter);
+  right: var(--qq-gutter);
+  height: var(--qq-toolbar-h);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 4px 18px;
+  border: 1px solid #77a3c8;
+  border-top-color: #dceeff;
+  border-radius: 0 0 4px 4px;
+  background-color: #dceeff;
+  background-image: var(--dream-skin-art);
+  background-size: var(--qq-canvas-width) var(--qq-canvas-height);
+  background-position: left calc(-1 * var(--qq-title-h));
+  background-repeat: no-repeat;
+  box-shadow: inset 0 1px white, 0 1px #2a6eaa;
+  color: #172638;
+  font-size: var(--qq-font-md);
+  font-weight: 650;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-toolbar > * { visibility: hidden; }
+
+html[data-dream-theme="qq2007"] .qq2007-toolbar span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-toolbar i {
+  display: inline-grid;
+  width: 25px;
+  height: 28px;
+  place-items: center;
+  font-size: 20px;
+  font-style: normal;
+  filter: saturate(1.15) drop-shadow(0 1px white);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-toolbar em {
+  width: 1px;
+  height: 26px;
+  margin: 0 -8px;
+  background: linear-gradient(transparent, #92b0c7 20%, #92b0c7 80%, transparent);
+  box-shadow: 1px 0 white;
+}
+
+/* Native shell becomes the left and center QQ panes. */
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel {
+  position: fixed !important;
+  z-index: 24 !important;
+  top: var(--qq-top) !important;
+  bottom: auto !important;
+  left: calc(var(--qq-canvas-left) + var(--qq-gutter)) !important;
+  width: var(--qq-left);
+  height: calc(var(--qq-canvas-height) - var(--qq-top) - var(--qq-bottom)) !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  border: 1px solid #7199b7 !important;
+  border-radius: 5px 5px 0 0 !important;
+  background: linear-gradient(90deg, #f8fcff, #eaf5ff) !important;
+  box-shadow: inset 0 0 0 1px white !important;
+  color: #101b29 !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel::before {
+  content: "🐧  Codex                                      ⌃";
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--qq-panel-header-h);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 calc(var(--qq-gutter) * 1.25);
+  border-bottom: 1px solid #8babc2;
+  background: linear-gradient(#fdfefe, #e5f2fb 55%, #d2e8f7);
+  color: #162236;
+  font-size: var(--qq-font-md);
+  font-weight: 700;
+  white-space: pre;
+  box-shadow: inset 0 1px white;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > * {
+  font-size: var(--qq-font-sm) !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > .max-w-full.overflow-hidden {
+  position: absolute !important;
+  top: var(--qq-panel-header-h) !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > .max-w-full.overflow-hidden > div > div {
+  --height-token-mode-switch: 0px !important;
+  --height-token-nav-row: var(--qq-nav-row-h) !important;
+  --radius-token-row: 0px !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [role="button"] {
+  box-sizing: border-box !important;
+  color: #172334 !important;
+  font-size: var(--qq-font-sm) !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button:not(:disabled):hover,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [role="button"]:not([aria-disabled="true"]):hover {
+  background: linear-gradient(#fff, #dceeff) !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel .group\/section-toggle {
+  min-height: 25px !important;
+  border-top: 1px solid #c4d7e5 !important;
+  border-bottom: 1px solid #a9c3d8 !important;
+  background: linear-gradient(#f8fcff, #dcecf8) !important;
+  color: #16467c !important;
+  font-weight: 700 !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [aria-label="搜索"] {
+  border: 1px solid #83a5bf !important;
+  background: white !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface {
+  position: fixed !important;
+  z-index: 18 !important;
+  top: var(--qq-top) !important;
+  bottom: auto !important;
+  left: calc(var(--qq-canvas-left) + var(--qq-left) + (var(--qq-gutter) * 2)) !important;
+  right: auto !important;
+  width: calc(var(--qq-canvas-width) - var(--qq-left) - var(--qq-right) - (var(--qq-gutter) * 3)) !important;
+  height: calc(var(--qq-canvas-height) - var(--qq-top) - var(--qq-bottom)) !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border: 1px solid #6f98b8 !important;
+  border-radius: 5px 5px 0 0 !important;
+  background: #fff !important;
+  box-shadow: inset 0 0 0 1px white !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface > header.app-header-tint {
+  position: relative !important;
+  z-index: 32 !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: var(--qq-panel-header-h) !important;
+  box-sizing: border-box !important;
+  padding: 0 calc(var(--qq-gutter) * 1.25) !important;
+  border: 0 !important;
+  border-bottom: 1px solid #92aec3 !important;
+  background: linear-gradient(#fcfeff, #e6f2fb 62%, #d6eaf8) !important;
+  color: #18263a !important;
+  font-size: var(--qq-font-md) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 1px white !important;
+  pointer-events: auto !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface > header.app-header-tint::before {
+  content: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface > header.app-header-tint > * {
+  visibility: visible !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface > header.app-header-tint :where(button, a) {
+  color: #18263a !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface [role="main"],
+html[data-dream-theme="qq2007"] main.main-surface > div:not(.composer-surface-chrome) {
+  background: #fff !important;
+  color: #111d2c !important;
+  text-shadow: none !important;
+}
+
+/* Preserve Codex's own home hierarchy: title/illustration, source icon,
+   three-column suggestions, project picker and responsive measurements.
+   QQ contributes only the light palette and blue-grey control borders. */
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-skin-home {
+  background: #fff !important;
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-skin-home
+  :where(h1, h2, h3, p, label) {
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-skin-home
+  :where([data-feature="game-source"], [data-testid="home-icon"]) {
+  color: #24618f !important;
+  opacity: 1 !important;
+}
+
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-skin-home
+  .group\/home-suggestions button:not(:disabled),
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-skin-plugin-card:not(:disabled) {
+  border-color: #8aaec8 !important;
+  background: linear-gradient(#fff, #e8f4fc) !important;
+  color: #172334 !important;
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(45,88,124,.16) !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface article,
+html[data-dream-theme="qq2007"] main.main-surface [data-message-author-role] {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #101b29 !important;
+  font-size: var(--qq-font-sm) !important;
+}
+
+html[data-dream-theme="qq2007"]
+  [data-pip-anchor-host="codex-main-thread"] > .flex.min-h-full.shrink-0.flex-col.justify-start {
+  --thread-wide-block-inline-shift: 0px !important;
+  transform: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface ._markdownText_12ojb_97,
+html[data-dream-theme="qq2007"] main.main-surface ._paragraph_12ojb_88,
+html[data-dream-theme="qq2007"] main.main-surface p,
+html[data-dream-theme="qq2007"] main.main-surface li {
+  font-size: var(--qq-font-sm) !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface pre,
+html[data-dream-theme="qq2007"] main.main-surface code {
+  border-color: #a8c2d6 !important;
+  border-radius: 4px !important;
+  background: #eef6fc !important;
+  color: #172638 !important;
+  text-shadow: none !important;
+}
+
+/* Suggested actions keep the native grid, spacing and responsive card size. */
+html[data-dream-theme="qq2007"] main.main-surface .group\/home-suggestions button:not(:disabled) {
+  border-color: #8aaec8 !important;
+  background: linear-gradient(#fff, #e8f4fc) !important;
+  color: #172334 !important;
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(45,88,124,.16) !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .group\/home-suggestions
+  button:not(:disabled) :where(span, div) {
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .group\/home-suggestions
+  button:not(:disabled) svg {
+  color: #24618f !important;
+}
+
+html[data-dream-theme="qq2007"] .dream-skin-home .group\/project-selector > button:not(:disabled),
+html[data-dream-theme="qq2007"] .dream-skin-home .group\/project-selector
+  > button:not(:disabled) :where(span, div) {
+  border-color: #83a5bf !important;
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome {
+  border-color: #7298b6 !important;
+  background: #fff !important;
+  box-shadow: 0 0 0 1px rgba(114,152,182,.16), 0 2px 8px rgba(45,88,124,.10) !important;
+  color: #182334 !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome::before {
+  content: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome .ProseMirror {
+  color: #253245 !important;
+  caret-color: #145fb8 !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome
+  :where(input, textarea)::placeholder {
+  color: #637d91 !important;
+  opacity: 1 !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome
+  .ProseMirror[data-placeholder]::before {
+  color: #637d91 !important;
+  opacity: 1 !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome
+  button:not([class~="bg-token-foreground"]):not(:disabled),
+html[data-dream-theme="qq2007"] main.main-surface .composer-surface-chrome
+  button:not([class~="bg-token-foreground"]):not(:disabled) :where(span, div) {
+  color: #253245 !important;
+  text-shadow: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface button[class~="bg-token-foreground"]:not(:disabled) {
+  border-color: #2f72b3 !important;
+  background: linear-gradient(#6eb5ee, #2f86ce 52%, #176ab4) !important;
+  color: white !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.75) !important;
+}
+
+/* Decorative right buddy rail */
+html[data-dream-theme="qq2007"] .qq2007-buddy-panel {
+  position: absolute;
+  top: var(--qq-top);
+  right: var(--qq-gutter);
+  bottom: var(--qq-bottom);
+  width: var(--qq-right);
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #6d96b6;
+  border-radius: 5px 5px 0 0;
+  background-color: #e8f4fd;
+  background-image: var(--dream-skin-art);
+  background-size: var(--qq-canvas-width) var(--qq-canvas-height);
+  background-position: right calc(-1 * var(--qq-gutter)) top calc(-1 * var(--qq-top));
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px white;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-panel > *:not(.qq2007-friend-search) {
+  visibility: hidden;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-panel::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 4px;
+  right: 4px;
+  bottom: 0;
+  height: 62px;
+  background: linear-gradient(#eaf4ff, #f7fbff);
+  pointer-events: none;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-panel > header,
+html[data-dream-theme="qq2007"] .qq2007-friends-title {
+  height: 33px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9px;
+  border-bottom: 1px solid #8eafc6;
+  background: linear-gradient(#fff, #e4f1fa 60%, #d2e7f6);
+  color: #142338;
+  font-size: var(--qq-font-sm);
+  box-shadow: inset 0 1px white;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-mascot-card {
+  height: 154px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid #aac5d8;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 72%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    linear-gradient(#e8f5ff, #d7ecfc 55%, #f9fdff);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-mascot-card svg {
+  width: 174px;
+  height: 145px;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-name {
+  height: 31px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  border-bottom: 1px solid #b8cedd;
+  background: white;
+  font-size: var(--qq-font-sm);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-name mark {
+  margin-left: auto;
+  padding: 1px 4px;
+  border: 1px solid #de8c19;
+  border-radius: 2px;
+  background: linear-gradient(#ffd972, #ee9d16);
+  color: white;
+  font: 700 10px/1.3 Tahoma, sans-serif;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-copy {
+  margin: 5px 7px;
+  padding: 8px 9px;
+  border: 1px solid #a4bfd3;
+  border-radius: 4px;
+  background: linear-gradient(#fff, #f1f8fd);
+  color: #172840;
+  font-size: var(--qq-font-sm);
+  line-height: 1.55;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-buddy-icons {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid #bdd2e1;
+  border-bottom: 1px solid #97b4c9;
+  background: linear-gradient(#f8fcff, #dfeef9);
+  font-size: 16px;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-friends-title {
+  height: 31px;
+  border-top: 1px solid white;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-avatar-card {
+  position: relative;
+  height: calc(100% - 394px);
+  min-height: 170px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  background: linear-gradient(#d4e8ff, #eef7ff);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-avatar-card svg {
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-stars {
+  position: absolute;
+  z-index: 2;
+  inset: 10px 6px auto;
+  color: white;
+  font-size: 18px;
+  text-shadow: 0 0 7px #74a7e7;
+}
+
+html[data-dream-theme="qq2007"] .qq2007-friend-search {
+  position: absolute;
+  z-index: 4;
+  left: var(--qq-gutter);
+  right: var(--qq-gutter);
+  bottom: var(--qq-gutter);
+  height: calc(var(--qq-panel-header-h) * .8);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--qq-gutter);
+  border: 1px solid #8baac1;
+  border-radius: 3px;
+  background: white;
+  color: #8a99a8;
+  font-size: var(--qq-font-sm);
+}
+
+/* Bottom QQ taskbar */
+html[data-dream-theme="qq2007"] .qq2007-bottom-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--qq-bottom);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 var(--qq-gutter);
+  border-top: 1px solid #5790c0;
+  background: linear-gradient(#dff1ff, #9ccaf0 58%, #6da9dc);
+  box-shadow: inset 0 1px white;
+  color: #15314f;
+  font-size: var(--qq-font-lg);
+}
+
+html[data-dream-theme="qq2007"] .qq2007-bottom-bar b {
+  margin-left: auto;
+  font: var(--qq-font-sm)/1 Tahoma, "Microsoft YaHei", sans-serif;
+  white-space: nowrap;
+}
+
+html[data-dream-theme="qq2007"] ::-webkit-scrollbar { width: 12px; height: 12px; }
+html[data-dream-theme="qq2007"] ::-webkit-scrollbar-track { background: #e7f2fa; border-left: 1px solid #afc6d7; }
+html[data-dream-theme="qq2007"] ::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #c8deee, #8db6d3); border: 1px solid #7098b6; }
+
+html[data-dream-theme="qq2007"] #codex-dream-skin-chrome::after {
+  content: "作者 myxsf · 禁止开源转卖与盗版";
+  position: absolute;
+  z-index: 999;
+  right: calc(var(--qq-gutter) + 4px);
+  bottom: calc(var(--qq-bottom) + 5px);
+  padding: 4px 9px;
+  border: 1px solid rgba(255,255,255,.52);
+  border-radius: 999px;
+  background: rgba(8,55,104,.68);
+  color: rgba(255,255,255,.94);
+  font: 700 var(--qq-font-sm)/1.2 "Microsoft YaHei UI", Tahoma, sans-serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  pointer-events: none;
+}
+
+/* QQ always uses a light native work area, even when Codex/system appearance
+   is dark. Override utility-class foreground colors at the profile boundary. */
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel :where(span, p, a, strong, small, label),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button:not(:disabled),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button:not(:disabled) :where(span, div),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [role="button"]:not([aria-disabled="true"]),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel
+  [role="button"]:not([aria-disabled="true"]) :where(span, div) {
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel .group\/section-toggle,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel .group\/section-toggle
+  :where(span, div, p, strong, small, label) {
+  color: #16467c !important;
+  font-weight: 700 !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button:not(:disabled) svg,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel
+  [role="button"]:not([aria-disabled="true"]) svg {
+  color: #24618f !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel :where(input, textarea)::placeholder {
+  color: #637d91 !important;
+  opacity: 1 !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > [role="separator"][aria-orientation="vertical"] {
+  pointer-events: auto !important;
+  cursor: col-resize !important;
+  touch-action: none !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > [role="separator"][aria-orientation="vertical"] .sidebar-resize-handle-line {
+  pointer-events: none !important;
+  width: 1px !important;
+  opacity: .52 !important;
+  background: #6f98b8 !important;
+  transition: none !important;
+}
+
+/* Geometry is renderer-driven from a 1440×1080 reference canvas. Media
+   overrides would desynchronise the native panes from the mapped artwork
+   during maximize/restore, so all dimensions stay on the shared variables. */

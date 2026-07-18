@@ -1,0 +1,233 @@
+:root.codex-dream-skin[data-dream-theme="qq2007"] {
+  color-scheme: light !important;
+  --dream-ink: var(--dream-theme-text, #132236);
+  --dream-purple: var(--dream-theme-accent, #1469c9);
+  --dream-pink: var(--dream-theme-accent-alt, #2f86ce);
+  --dream-line: var(--dream-theme-line, rgba(52,111,161,.42));
+}
+
+html.codex-dream-skin[data-dream-theme="qq2007"] body {
+  background: linear-gradient(#62a5df, #9fd3f4 40px, #eaf6ff 130px) !important;
+  color: var(--dream-ink) !important;
+  font-family: "Microsoft YaHei UI", Tahoma, sans-serif !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel,
+html[data-dream-theme="qq2007"] main.main-surface {
+  background: linear-gradient(180deg, #f8fcff, #e7f4fd) !important;
+  border: 1px solid #548fbd !important;
+  border-radius: 2px !important;
+  box-shadow: inset 0 0 0 1px #fff !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface > header {
+  margin-top: 38px !important;
+  background: linear-gradient(#f7fcff, #d9eefb) !important;
+  border-bottom: 1px solid #7aa8c8 !important;
+}
+
+html[data-dream-theme="qq2007"] .composer-surface-chrome {
+  border: 1px solid #5a91ba !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: 0 0 0 1px #d7eaf8 !important;
+}
+
+html[data-dream-theme="qq2007"] button {
+  border-radius: 2px !important;
+}
+
+#codex-dream-skin-chrome {
+  position: fixed;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#codex-dream-skin-chrome .dream-window-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 14px;
+  color: white;
+  background: linear-gradient(#2587df, #0865c0 54%, #2b8ee1 55%, #116dc7);
+  border-bottom: 1px solid #064889;
+  text-shadow: 0 1px #064b91;
+  -webkit-app-region: drag;
+}
+
+.dream-window-title span { font-size: 12px; opacity: .88; }
+.dream-window-actions {
+  position: absolute;
+  z-index: 3;
+  top: 4px;
+  right: 5px;
+  display: flex;
+  gap: 3px;
+  pointer-events: auto;
+  -webkit-app-region: no-drag;
+}
+.dream-window-actions button {
+  width: 31px;
+  height: 27px;
+  padding: 0;
+  color: white;
+  font: bold 17px/25px Tahoma, sans-serif;
+  background: linear-gradient(#79baf0, #1a75c9) !important;
+  border: 1px solid rgba(255,255,255,.85) !important;
+  box-shadow: inset 0 0 0 1px #1b5e9a !important;
+  cursor: default;
+}
+.dream-window-actions button:last-child { background: linear-gradient(#ff9d74, #d94e22) !important; }
+.dream-window-actions button:hover { filter: brightness(1.12); }
+
+#codex-dream-window-resize-layer {
+  position: fixed;
+  z-index: 2147483646;
+  inset: 0;
+  pointer-events: none;
+  -webkit-app-region: no-drag;
+}
+
+.dream-window-resize-handle {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+.dream-window-resize-handle[data-dream-resize-direction="n"] { top: 0; left: 10px; right: 10px; height: 6px; cursor: ns-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="s"] { bottom: 0; left: 10px; right: 10px; height: 7px; cursor: ns-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="e"] { top: 10px; right: 0; bottom: 10px; width: 7px; cursor: ew-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="w"] { top: 10px; bottom: 10px; left: 0; width: 7px; cursor: ew-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="ne"] { top: 0; right: 0; width: 12px; height: 12px; cursor: nesw-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="nw"] { top: 0; left: 0; width: 12px; height: 12px; cursor: nwse-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="se"] { right: 0; bottom: 0; width: 13px; height: 13px; cursor: nwse-resize; }
+.dream-window-resize-handle[data-dream-resize-direction="sw"] { bottom: 0; left: 0; width: 13px; height: 13px; cursor: nesw-resize; }
+
+html:not([data-dream-window-state="normal"]) #codex-dream-window-resize-layer,
+html[data-dream-window-resizing] #codex-dream-window-resize-layer {
+  pointer-events: none;
+}
+
+html:not([data-dream-window-state="normal"]) .dream-window-resize-handle {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#codex-dream-skin-chrome .dream-brand {
+  position: absolute;
+  right: 12px;
+  top: 60px;
+  width: 210px;
+  padding: 12px;
+  color: #174c7c;
+  background: linear-gradient(#f8fcff, #dceffa);
+  border: 1px solid #6c9fc5;
+  box-shadow: inset 0 0 0 1px white;
+}
+#codex-dream-skin-chrome .dream-brand b,
+#codex-dream-skin-chrome .dream-brand small { display: block; }
+#codex-dream-skin-chrome .dream-brand small { margin-top: 4px; color: #59788f; }
+
+@media (max-width: 900px) {
+  #codex-dream-skin-chrome .dream-brand { display: none; }
+}
+
+#codex-dream-skin-chrome::after {
+  content: "作者 myxsf · 禁止开源转卖与盗版";
+  position: absolute;
+  z-index: 999;
+  right: 14px;
+  bottom: 10px;
+  padding: 4px 9px;
+  border: 1px solid rgba(255,255,255,.52);
+  border-radius: 999px;
+  background: rgba(8,55,104,.68);
+  color: rgba(255,255,255,.94);
+  font: 700 10px/1.2 "Microsoft YaHei UI", Tahoma, sans-serif;
+  pointer-events: none;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel :where(div, span, p, a, button, strong, small, label),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [class*="text-"] {
+  color: #172334 !important;
+  text-shadow: none !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel svg { color: #24618f !important; opacity: 1 !important; }
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > .max-w-full.overflow-hidden {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+html[data-dream-theme="qq2007"]
+  [data-pip-anchor-host="codex-main-thread"] > .flex.min-h-full.shrink-0.flex-col.justify-start {
+  --thread-wide-block-inline-shift: 0px !important;
+  transform: none !important;
+}
+
+html[data-dream-theme="qq2007"] main.main-surface .group\/home-suggestions button {
+  min-height: 70px !important;
+  border: 1px solid #8aaec8 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(#fff, #e8f4fc) !important;
+  color: #172334 !important;
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(45,88,124,.16) !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button,
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [role="button"] {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+  padding-right: 64px !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel button :where(span, div),
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel [role="button"] :where(span, div) {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > [role="separator"][aria-orientation="vertical"] {
+  pointer-events: auto !important;
+  cursor: col-resize !important;
+  touch-action: none !important;
+}
+html[data-dream-theme="qq2007"] aside.app-shell-left-panel > [role="separator"][aria-orientation="vertical"] .sidebar-resize-handle-line {
+  pointer-events: none !important;
+  width: 1px !important;
+  opacity: .52 !important;
+  background: #6f98b8 !important;
+  transition: none !important;
+}
+
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-home [data-feature="game-source"],
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-home [data-testid="home-icon"] { display: none !important; }
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-home .group\/home-suggestions .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 10px !important;
+  border: 1px solid #8eafc6 !important;
+  background: #f5fbff !important;
+}
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-home .group\/home-suggestions button,
+html[data-dream-theme="qq2007"][data-dream-page="home"] .dream-plugin-card {
+  min-height: 70px !important;
+  border: 1px solid #8aaec8 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(#fff, #e8f4fc) !important;
+  color: #172334 !important;
+  box-shadow: inset 0 1px white, 0 1px 2px rgba(45,88,124,.16) !important;
+}

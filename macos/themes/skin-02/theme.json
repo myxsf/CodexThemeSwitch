@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-02",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "财神打工版",
+  "brandSubtitle": "FORTUNE WORK EDITION",
+  "tagline": "代码写得好，效率与好运一起到。",
+  "projectPrefix": "招财项目 · ",
+  "projectLabel": "🧧  选择项目",
+  "statusText": "今日好运在线",
+  "quote": "SHIP IT WITH FORTUNE",
+  "image": "fortune-hero.png",
+  "colors": {
+    "background": "#FFF8E5",
+    "panel": "#FFFDF5",
+    "panelAlt": "#F7F1D5",
+    "accent": "#B72715",
+    "accentAlt": "#D69A28",
+    "secondary": "#3A8B4A",
+    "highlight": "#8E160D",
+    "text": "#4B2A16",
+    "muted": "#8A6B48",
+    "line": "rgba(183, 39, 21, .26)"
+  }
+}

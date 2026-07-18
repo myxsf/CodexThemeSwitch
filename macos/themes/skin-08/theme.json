@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-08",
+  "profile": "inspiration-universe",
+  "appearance": "dark",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "舞台黑金",
+  "brandSubtitle": "BLACK GOLD STAGE",
+  "tagline": "在聚光灯下把作品打磨到位。",
+  "projectPrefix": "舞台项目 · ",
+  "projectLabel": "★  选择项目",
+  "statusText": "舞台工作台在线",
+  "quote": "MAKE IT SHINE",
+  "image": "black-gold-hero.png",
+  "colors": {
+    "background": "#0D0D0B",
+    "panel": "#171714",
+    "panelAlt": "#211E19",
+    "accent": "#C7A86B",
+    "accentAlt": "#E1CA93",
+    "secondary": "#8B6E48",
+    "highlight": "#F0D8A4",
+    "text": "#F3EBDD",
+    "muted": "#AAA18F",
+    "line": "rgba(199, 168, 107, .30)"
+  }
+}

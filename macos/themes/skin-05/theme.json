@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-05",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "灵感小宇宙",
+  "brandSubtitle": "ENFP 灵感工作台",
+  "tagline": "先有灵感，再把它变成真的。",
+  "projectPrefix": "选择项目 · ",
+  "projectLabel": "◉  选择项目",
+  "statusText": "灵感发动机已启动",
+  "quote": "脑暴 · 试错 · 灵感乱飞 · 最后都能落地",
+  "image": "inspiration-universe-hero.jpg",
+  "visual": {
+    "layoutVariant": "enfp",
+    "sidebar": {
+      "brand": "Codex✨",
+      "subtitle": "ENFP 小宇宙",
+      "footerText": "翔仔正在工作ing"
+    },
+    "cards": [
+      { "icon": "💡", "title": "灵感脑暴", "detail": "把脑子里的一万种可能都倒出来！", "action": "prompt", "prompt": "请和我进行一次开放式灵感脑暴，先发散列出多种可行方向，再按价值和可实现性帮我收敛。" },
+      { "icon": "⚡", "title": "快速原型", "detail": "想法不等人，先跑起来再说！", "action": "prompt", "prompt": "请基于当前项目做一个最小可运行原型，优先打通核心流程，并列出后续打磨项。" },
+      { "icon": "🎮", "title": "边玩边改", "detail": "改到爽为止，体验即正义！", "action": "prompt", "prompt": "请检查当前项目的交互体验，找出最影响使用感受的问题并直接提出可验证的迭代方案。" },
+      { "icon": "🐞", "title": "欢乐修 Bug", "detail": "Bug 不可怕，把它变成段子吧！", "action": "prompt", "prompt": "请系统排查当前项目中的 Bug：先复现和定位根因，再给出最小修复并补充回归验证。" }
+    ],
+    "note": {
+      "title": "今日心情卡 ☺",
+      "lines": ["创意 +100", "动力 +100", "乐趣 +100", "总能量 300% ⚡"]
+    },
+    "chrome": { "sparkles": false, "ribbon": false, "polaroid": false }
+  },
+  "colors": {
+    "background": "#FFF9E9",
+    "panel": "#FFFDF5",
+    "panelAlt": "#F4FFF9",
+    "accent": "#19AD91",
+    "accentAlt": "#55CDB4",
+    "secondary": "#F28C58",
+    "highlight": "#F2C23E",
+    "text": "#473C31",
+    "muted": "#817465",
+    "line": "rgba(25, 173, 145, .24)"
+  }
+}

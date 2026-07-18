@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-01",
+  "kind": "theme",
+  "profile": "dream-fiona",
+  "name": "粉系定制",
+  "brandSubtitle": "CODEX DREAM SKIN",
+  "tagline": "写代码，也要有氛围感。",
+  "statusText": "DREAM SKIN ONLINE",
+  "quote": "MAKE SOMETHING WONDERFUL",
+  "image": "dream-reference.png",
+  "colors": {
+    "background": "#FFF4FA",
+    "panel": "#FFFAFD",
+    "panelAlt": "#F5EAFD",
+    "accent": "#B65CFF",
+    "accentAlt": "#FF73BD",
+    "secondary": "#8B3DCE",
+    "highlight": "#F3A5CC",
+    "text": "#4A235F",
+    "muted": "#835F91",
+    "line": "rgba(221, 122, 184, .42)"
+  }
+}

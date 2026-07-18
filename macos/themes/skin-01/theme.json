@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-01",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center center", "size": "cover" },
+  "name": "粉系定制",
+  "brandSubtitle": "PINK CUSTOM EDITION",
+  "tagline": "柔粉玫瑰与轻盈玻璃质感。",
+  "projectPrefix": "选择项目 · ",
+  "projectLabel": "♡  选择项目",
+  "statusText": "粉色灵感已上线",
+  "quote": "MAKE SOMETHING LOVELY",
+  "image": "pink-custom-hero.png",
+  "colors": {
+    "background": "#FFF4F4",
+    "panel": "#FFFDFC",
+    "panelAlt": "#FDEBEC",
+    "accent": "#D85D79",
+    "accentAlt": "#F3A8B7",
+    "secondary": "#DCA28F",
+    "highlight": "#B94562",
+    "text": "#4A2928",
+    "muted": "#8F6E68",
+    "line": "rgba(216, 93, 121, .28)"
+  }
+}

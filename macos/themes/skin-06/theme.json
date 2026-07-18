@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-06",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "紫夜限定",
+  "brandSubtitle": "PURPLE NIGHT EDITION",
+  "tagline": "让夜色、星光与代码一起闪耀。",
+  "projectPrefix": "星夜项目 · ",
+  "projectLabel": "✦  选择项目",
+  "statusText": "紫夜频道在线",
+  "quote": "CREATE AFTER DARK",
+  "image": "purple-night-hero.png",
+  "visual": {
+    "layoutVariant": "purple-night",
+    "sidebar": {
+      "brand": "Codex ✦",
+      "subtitle": "热巴星球",
+      "footerText": "翔仔正在工作ing"
+    },
+    "cards": [
+      { "icon": "</>", "title": "探索并理解代码", "detail": "梳理代码结构与实现逻辑", "action": "prompt", "prompt": "请探索当前代码库，说明核心目录、关键执行链路和最值得先理解的模块。" },
+      { "icon": "🧩", "title": "构建新功能、应用或工具", "detail": "把灵感变成可运行的作品", "action": "prompt", "prompt": "请根据当前项目上下文设计并实现一个可运行的新功能，先确认约束，再完成验证。" },
+      { "icon": "☑", "title": "审查代码并提出修改建议", "detail": "发现问题并给出改进方案", "action": "prompt", "prompt": "请审查当前代码，按严重程度列出正确性、稳定性、性能和可维护性问题，并给出修改建议。" },
+      { "icon": "🛠", "title": "修复问题和失败", "detail": "定位故障并可靠修复", "action": "prompt", "prompt": "请复现当前失败，定位根因，实施最小修复，并运行相应回归测试。" }
+    ],
+    "note": {
+      "title": "Be your light",
+      "lines": ["灵感在线", "专注创作", "真实 Codex 交互"]
+    },
+    "chrome": { "sparkles": false, "ribbon": false, "polaroid": false }
+  },
+  "colors": {
+    "background": "#F2F0FF",
+    "panel": "#FAF9FF",
+    "panelAlt": "#E7E5FF",
+    "accent": "#6E3CF5",
+    "accentAlt": "#29C5E3",
+    "secondary": "#A65AF2",
+    "highlight": "#4625C7",
+    "text": "#30215F",
+    "muted": "#6F6496",
+    "line": "rgba(110, 60, 245, .28)"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "inspiration-universe",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "灵感小宇宙",
+  "brandSubtitle": "ENFP 灵感工作台",
+  "tagline": "先有灵感，再把它变成真的。",
+  "projectPrefix": "选择项目 · ",
+  "projectLabel": "◉  选择项目",
+  "statusText": "灵感发动机已启动",
+  "quote": "脑暴 · 试错 · 灵感乱飞 · 最后都能落地",
+  "image": "inspiration-universe-hero.jpg",
+  "colors": {
+    "background": "#FFF9E9",
+    "panel": "#FFFDF5",
+    "panelAlt": "#F4FFF9",
+    "accent": "#19AD91",
+    "accentAlt": "#55CDB4",
+    "secondary": "#F28C58",
+    "highlight": "#F2C23E",
+    "text": "#473C31",
+    "muted": "#817465",
+    "line": "rgba(25, 173, 145, .24)"
+  }
+}

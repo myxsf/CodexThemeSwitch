@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-04",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "清透定制",
+  "brandSubtitle": "CLEAR SAGE EDITION",
+  "tagline": "让思路在清透空间里自然展开。",
+  "projectPrefix": "清透项目 · ",
+  "projectLabel": "☆  选择项目",
+  "statusText": "清透工作台在线",
+  "quote": "KEEP IT CLEAR",
+  "image": "sage-hero.png",
+  "colors": {
+    "background": "#FBFAF3",
+    "panel": "#FFFFFB",
+    "panelAlt": "#F5F4EB",
+    "accent": "#8C9B68",
+    "accentAlt": "#B5BF95",
+    "secondary": "#D8B9A4",
+    "highlight": "#66764A",
+    "text": "#3C4230",
+    "muted": "#7C806C",
+    "line": "rgba(140, 155, 104, .27)"
+  }
+}

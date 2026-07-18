@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "qq2007",
+  "profile": "qq2007",
+  "appearance": "light",
+  "name": "复古 QQ 2007",
+  "brandSubtitle": "CODEX QQ 2007",
+  "tagline": "代码有问题？找我！",
+  "projectPrefix": "项目 · ",
+  "projectLabel": "📁 选择项目",
+  "statusText": "Codex 小蓝在线",
+  "quote": "陪你写代码，改 Bug，查文档",
+  "image": "qq2007-reference.jpg",
+  "colors": {
+    "background": "#6DA9DC",
+    "panel": "#F8FCFF",
+    "panelAlt": "#E5F2FB",
+    "accent": "#1469C9",
+    "accentAlt": "#2F86CE",
+    "secondary": "#8EC8F0",
+    "highlight": "#0B55AF",
+    "text": "#132236",
+    "muted": "#60768A",
+    "line": "rgba(52, 111, 161, .42)"
+  }
+}

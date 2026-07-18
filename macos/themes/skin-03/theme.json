@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-03",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center center", "size": "cover" },
+  "name": "红白科幻",
+  "brandSubtitle": "RED WHITE FUTURE",
+  "tagline": "用先进工具，为每个人创造更多可能。",
+  "projectPrefix": "未来项目 · ",
+  "projectLabel": "◉  选择项目",
+  "statusText": "未来引擎在线",
+  "quote": "BUILD THE NEXT THING",
+  "image": "red-white-hero.png",
+  "colors": {
+    "background": "#FFF8F8",
+    "panel": "#FFFFFF",
+    "panelAlt": "#FFF1F1",
+    "accent": "#D9232E",
+    "accentAlt": "#F06B73",
+    "secondary": "#E99B9F",
+    "highlight": "#AD111D",
+    "text": "#191515",
+    "muted": "#75696A",
+    "line": "rgba(217, 35, 46, .25)"
+  }
+}

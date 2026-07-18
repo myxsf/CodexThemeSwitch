@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-07",
+  "profile": "inspiration-universe",
+  "appearance": "light",
+  "art": { "position": "center top", "size": "cover" },
+  "name": "初音未来",
+  "brandSubtitle": "CYAN MUSIC EDITION",
+  "tagline": "把灵感写成代码与旋律。",
+  "projectPrefix": "音乐项目 · ",
+  "projectLabel": "♫  选择项目",
+  "statusText": "电子舞台在线",
+  "quote": "CODE WITH RHYTHM",
+  "image": "miku-hero.png",
+  "visual": {
+    "layoutVariant": "miku",
+    "sidebar": {
+      "brand": "Miku Codex",
+      "subtitle": "初音未来主题 Codex App",
+      "footerText": "翔仔正在工作ing"
+    },
+    "cards": [
+      { "icon": "</>", "title": "探索并理解代码", "detail": "梳理代码结构与实现逻辑", "action": "prompt", "prompt": "请探索当前代码库，说明核心目录、关键执行链路和最值得先理解的模块。" },
+      { "icon": "🧩", "title": "构建新功能、应用或工具", "detail": "把灵感变成可运行的作品", "action": "prompt", "prompt": "请根据当前项目上下文设计并实现一个可运行的新功能，先确认约束，再完成验证。" },
+      { "icon": "☑", "title": "审查代码并提出修改建议", "detail": "发现问题并给出改进方案", "action": "prompt", "prompt": "请审查当前代码，按严重程度列出正确性、稳定性、性能和可维护性问题，并给出修改建议。" },
+      { "icon": "🛠", "title": "修复问题和失败", "detail": "定位故障并可靠修复", "action": "prompt", "prompt": "请复现当前失败，定位根因，实施最小修复，并运行相应回归测试。" }
+    ],
+    "note": {
+      "title": "Be Together",
+      "lines": ["Code with rhythm", "Future Star", "真实 Codex 交互"]
+    },
+    "chrome": { "sparkles": false, "ribbon": false, "polaroid": false }
+  },
+  "colors": {
+    "background": "#EDFDFD",
+    "panel": "#F7FFFF",
+    "panelAlt": "#E7F8FC",
+    "accent": "#20BFC8",
+    "accentAlt": "#78DDE5",
+    "secondary": "#F08AC6",
+    "highlight": "#15949F",
+    "text": "#173B49",
+    "muted": "#5D7D86",
+    "line": "rgba(32, 191, 200, .27)"
+  }
+}
