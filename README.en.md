@@ -22,6 +22,15 @@
   <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
 </p>
 
+## Project & sponsorship
+
+<p align="center">
+  <strong>Codex Theme Switch</strong><br>
+  <sub>Maintained by <a href="https://github.com/myxsf">myxsf</a> · No sponsors yet</sub>
+</p>
+
+This project is not sponsored by or affiliated with any API relay, service provider, or other commercial service. Any future sponsor will be disclosed here; unlisted third parties are unrelated to this project.
+
 ## Gallery
 
 The first image is a privacy-cropped `2.2.8` live gallery containing only the

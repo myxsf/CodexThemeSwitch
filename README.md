@@ -22,6 +22,15 @@
   <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
 </p>
 
+## 项目归属与赞助
+
+<p align="center">
+  <strong>Codex Theme Switch · Codex 主题衣橱</strong><br>
+  <sub>由 <a href="https://github.com/myxsf">myxsf</a> 维护 · 目前暂无赞助商</sub>
+</p>
+
+本项目未接受任何组织或服务商赞助，也不为第三方 API、中转站或商业服务背书。未来如有正式赞助，会在这里公开标注；未标注的第三方均与本项目无关。
+
 ## 效果预览
 
 下面是 `2.2.8` 的脱敏实机截图，仅保留 Hero 与原生建议卡区域：

@@ -1,4 +1,6 @@
-# Codex 万能皮肤衣橱
+# Codex Theme Switch · Codex 主题衣橱
+
+维护者：`myxsf`。目前暂无赞助商；本项目不为任何未列出的第三方 API、中转站或商业服务背书。
 
 ## 当前版本
 

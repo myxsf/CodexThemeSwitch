@@ -30,12 +30,22 @@ HOME_DIR="$WORK/home"
   'keepMe = true' > "$HOME_DIR/.codex/config.toml"
 /bin/cp "$HOME_DIR/.codex/config.toml" "$WORK/original-config.toml"
 
-HOME="$HOME_DIR" "$ENGINE/scripts/install-dream-skin-macos.sh" --port 19431 --no-launchers --no-launch
+HOME="$HOME_DIR" "$ENGINE/scripts/install-dream-skin-macos.sh" --port 19431 --no-launch
 INSTALLED="$HOME_DIR/.codex/codex-dream-skin-studio"
 STATE="$HOME_DIR/Library/Application Support/CodexDreamSkinStudio"
 [ -x "$INSTALLED/scripts/theme-macos.sh" ]
 [ -s "$INSTALLED/.engine-manifest.sha256" ]
 /usr/bin/cmp -s "$ENGINE/.engine-manifest.sha256" "$INSTALLED/.engine-manifest.sha256"
+
+for launcher in \
+  'Codex Dream Skin.command' \
+  'Codex Dream Skin - Customize.command' \
+  'Codex Dream Skin - Verify.command' \
+  'Codex Dream Skin - Restore.command' \
+  'Codex Theme - Inspiration Prince.command' \
+  'Codex Theme - Retro QQ 2007.command'; do
+  [ -x "$HOME_DIR/Desktop/$launcher" ]
+done
 
 for id in skin-01 skin-02 skin-03 skin-04 skin-05 skin-06 skin-07 skin-08 qq2007; do
   [ -f "$STATE/themes/$id/theme.json" ]
@@ -58,4 +68,4 @@ HOME="$HOME_DIR" "$NODE" "$INSTALLED/scripts/theme-config.mjs" restore \
   "$HOME_DIR/.codex/config.toml" "$STATE/theme-backup.json" >/dev/null
 /usr/bin/cmp -s "$HOME_DIR/.codex/config.toml" "$WORK/original-config.toml"
 
-printf 'PASS: macOS release archive, Universal signature, isolated install, all themes, staged switch, and config restore.\n'
+printf 'PASS: macOS release archive, Universal signature, isolated install, Desktop launchers, all themes, staged switch, and config restore.\n'

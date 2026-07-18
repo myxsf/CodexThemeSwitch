@@ -7,6 +7,12 @@ RELEASE="$ROOT/release"
 STAGE="$(/usr/bin/mktemp -d /private/tmp/codex-wardrobe-delivery.XXXXXX)"
 trap '/bin/rm -rf "$STAGE"' EXIT
 
+/usr/bin/grep -Fq 'Codex Theme Switch · Codex 主题衣橱' "$ROOT/README.md"
+/usr/bin/grep -Fq '目前暂无赞助商' "$ROOT/README.md"
+/usr/bin/grep -Fq '赞助状态：目前暂无赞助商' "$ROOT/release/README.zh-CN.md"
+! /usr/bin/grep -RniE 'passion8|aff=TuPe' \
+  "$ROOT/README.md" "$ROOT/README.en.md" "$ROOT/docs" "$ROOT/release/README.zh-CN.md"
+
 APP="$HOME/Desktop/Codex 主题衣橱.app"
 "$ROOT/macos/scripts/build-theme-switcher-macos.sh" "$APP"
 /usr/bin/codesign --verify --deep --strict "$APP"

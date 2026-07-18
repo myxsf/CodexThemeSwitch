@@ -57,7 +57,7 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
 }
 '@ | Add-Content -LiteralPath $common -Encoding UTF8
 
-  & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Port 19335 -NoShortcuts -NoLaunch
+  & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $installer -Port 19335 -NoLaunch
   if ($LASTEXITCODE -ne 0) { throw "Packaged installer exited with $LASTEXITCODE" }
 
   $installed = Join-Path $env:LOCALAPPDATA 'Programs\CodexThemeWardrobe'
@@ -66,6 +66,10 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   $statePath = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\state.json'
   if (-not (Test-Path -LiteralPath $wardrobe)) { throw 'Installed WPF wardrobe executable is missing.' }
   if (-not (Test-Path -LiteralPath $statePath)) { throw 'Initial runtime state is missing.' }
+  $desktopShortcut = Join-Path ([Environment]::GetFolderPath('Desktop')) 'Codex Theme Wardrobe.lnk'
+  $startMenuShortcut = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\Codex Theme Wardrobe.lnk'
+  if (-not (Test-Path -LiteralPath $desktopShortcut)) { throw 'Desktop wardrobe shortcut is missing.' }
+  if (-not (Test-Path -LiteralPath $startMenuShortcut)) { throw 'Start Menu wardrobe shortcut is missing.' }
 
   $state = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
   if ($state.activeThemeId -ne 'original' -or $state.session -ne 'off' -or $state.port -ne 19335) {
@@ -92,12 +96,15 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   if (Test-Path -LiteralPath (Join-Path $installed 'reinstall-marker.txt')) { throw 'Atomic reinstall preserved stale files.' }
 
   $restore = Join-Path $installed 'windows\scripts\restore-dream-skin.ps1'
-  & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $restore -Port 19335
+  & powershell.exe -NoProfile -ExecutionPolicy Bypass -File $restore -Port 19335 -Uninstall
   if ($LASTEXITCODE -ne 0) { throw 'Original-mode restore failed.' }
   $restored = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
   if ($restored.activeThemeId -ne 'original' -or $restored.session -ne 'off') { throw 'Restore state is not original/off.' }
+  if (Test-Path -LiteralPath $installed) { throw 'Uninstall left the installation directory behind.' }
+  if (Test-Path -LiteralPath $desktopShortcut) { throw 'Uninstall left the Desktop shortcut behind.' }
+  if (Test-Path -LiteralPath $startMenuShortcut) { throw 'Uninstall left the Start Menu shortcut behind.' }
 
-  Write-Host 'PASS: Windows release ZIP, atomic install, WPF compile/start, all themes, reinstall, and original restore.'
+  Write-Host 'PASS: Windows release ZIP, shortcuts, atomic install, WPF compile/start, all themes, reinstall, restore, and uninstall.'
 } finally {
   $env:LOCALAPPDATA = $oldLocalAppData
   $env:APPDATA = $oldAppData

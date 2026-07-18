@@ -16,6 +16,12 @@ jobs:
         run: NODE="$(command -v node)" SKIP_LIVE_DOCTOR=true ./macos/tests/run-tests.sh
       - name: Windows cross-platform static tests
         run: ./windows/tests/run-tests.sh
+      - name: Public identity and sponsorship guard
+        run: |
+          grep -Fq 'Codex Theme Switch · Codex 主题衣橱' README.md
+          grep -Fq '目前暂无赞助商' README.md
+          grep -Fq 'No sponsors yet' README.en.md
+          ! grep -RniE 'passion8|aff=TuPe' README.md README.en.md docs macos windows themes
 
   windows-release-smoke:
     runs-on: windows-latest

@@ -28,6 +28,7 @@
 | 安全审 | 核对是否改 asar、是否静默劫持 API；结论：以本机 CDP 注入为主，开源时明确禁止静默中转劫持 |
 | 整理开源 | 按平台拆成 `macos/`、`windows/`，补 README 图库与安装入口 |
 | 本地美化 | Mac 本机引擎装在 `~/.codex/codex-dream-skin-studio`；CSS 走主题壳与原生控件镜像 |
+| 项目归属 | 公开名称为 Codex Theme Switch（Codex 主题衣橱），由 `myxsf` 维护；目前暂无赞助商 |
 | 图库 | `docs/images/gallery/skin-01`～`08`；粉系定制 → 财神打工 → 红白科幻… |
 | i18n | 默认中文 `README.md`，英文 `README.en.md`，顶部互链 |
 
