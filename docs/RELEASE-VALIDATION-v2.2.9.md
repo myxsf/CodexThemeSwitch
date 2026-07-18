@@ -30,7 +30,10 @@ GitHub Actions `windows-latest` 使用与交付包相同的目录结构模拟全
 - 十个主题入口、二次原子安装、恢复原皮与卸载清理；
 - PowerShell、JavaScript、窗口缩放几何和主题 payload 测试。
 
-发布后的 Windows ZIP 还会通过手动 `workflow_dispatch` 再下载公开 Release 资产复测；运行链接会在最终发布提交中补充。
+当前源码生成的 Windows ZIP 已在 GitHub Actions 通过完整新用户安装模拟：
+https://github.com/myxsf/CodexThemeSwitch/actions/runs/29653100900
+
+发布后的公开 Windows ZIP 还会通过手动 `workflow_dispatch` 下载 Release 资产再复测。
 
 ## 验证边界
 
