@@ -2,7 +2,7 @@
 
 ## Supported release
 
-Security fixes target the latest release, currently `2.2.8`.
+Security fixes target the latest release, currently `2.2.9`.
 
 ## Reporting a vulnerability
 

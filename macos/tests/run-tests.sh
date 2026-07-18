@@ -11,9 +11,10 @@ while IFS= read -r file; do /bin/bash -n "$file"; done < <(
     ! -path '*/release/*' -print
 )
 while IFS= read -r file; do "$NODE" --check "$file" >/dev/null; done < <(
-  /usr/bin/find "$ROOT/scripts" "$ROOT/assets" -type f \( -name '*.mjs' -o -name '*.js' \) -print
+  /usr/bin/find "$ROOT/scripts" "$ROOT/assets" "$ROOT/tests" -type f \( -name '*.mjs' -o -name '*.js' \) -print
 )
 [ -f "$ROOT/tests/sidebar-resize-live.mjs" ]
+[ -f "$ROOT/tests/contrast-audit-live.mjs" ]
 
 if /usr/bin/grep -R -n -E 'dream-skin-skin|DREAM_SKIN_SKIN|1\.0\.0-rc2' \
   "$ROOT/scripts" "$ROOT/assets" >/dev/null; then
@@ -262,6 +263,12 @@ BACKUP="$TMP/theme-backup.json"
 /usr/bin/grep -q '作者 myxsf' "$ROOT/switcher/ThemeSwitcherApp.swift"
 /usr/bin/grep -q '禁止开源转卖与盗版' "$ROOT/assets/dream-skin.css"
 /usr/bin/grep -q 'data-dream-palette="light"' "$ROOT/assets/dream-skin.css"
+/usr/bin/grep -q -- '--color-token-main-surface-primary: var(--ds-panel)' "$ROOT/assets/dream-skin.css"
+/usr/bin/grep -q -- '--color-token-text-secondary: color-mix' "$ROOT/assets/dream-skin.css"
+/usr/bin/grep -q -- '--ds-on-accent:' "$ROOT/assets/dream-skin.css"
+/usr/bin/grep -q 'from-token-main-surface-primary' "$ROOT/assets/dream-skin.css"
+/usr/bin/grep -q 'composerDarkLayers' "$ROOT/tests/contrast-audit-live.mjs"
+/usr/bin/grep -q 'sendContrast' "$ROOT/tests/contrast-audit-live.mjs"
 /usr/bin/grep -q 'dream-skin-card-visual' "$ROOT/assets/renderer-inject.js"
 /usr/bin/grep -q 'data-dream-layout' "$ROOT/assets/renderer-inject.js"
 /usr/bin/grep -q 'data-dream-card-index' "$ROOT/assets/renderer-inject.js"
@@ -383,7 +390,7 @@ done
 /usr/bin/grep -q 'original|off|none|stock' "$ROOT/scripts/theme-macos.sh"
 /usr/bin/grep -A2 'prince|little-prince|inspiration-universe' "$ROOT/scripts/switch-theme-macos.sh" | /usr/bin/grep -q 'skin-05'
 /usr/bin/grep -A2 'prince|little-prince|inspiration-universe|小王子' "$ROOT/scripts/theme-macos.sh" | /usr/bin/grep -q 'skin-05'
-/usr/bin/env -u HOME /bin/bash -c '. "$1/scripts/common-macos.sh"; [ -n "$HOME" ] && [ "$SKIN_VERSION" = "2.2.8" ]' _ "$ROOT"
+/usr/bin/env -u HOME /bin/bash -c '. "$1/scripts/common-macos.sh"; [ -n "$HOME" ] && [ "$SKIN_VERSION" = "2.2.9" ]' _ "$ROOT"
 DOCTOR_LABEL="doctor"
 if [ "${SKIP_LIVE_DOCTOR:-false}" != "true" ]; then
   "$ROOT/scripts/doctor-macos.sh" >/dev/null

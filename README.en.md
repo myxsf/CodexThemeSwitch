@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml"><img src="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
+  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.9"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
 </p>
 
 ## Project & sponsorship
@@ -33,11 +33,11 @@ This project is not sponsored by or affiliated with any API relay, service provi
 
 ## Gallery
 
-The first image is a privacy-cropped `2.2.8` live gallery containing only the
+The first image is a privacy-cropped `2.2.9` live gallery containing only the
 Hero and native suggestion-card regions:
 
 <p align="center">
-  <img src="docs/images/theme-gallery-safe.png" alt="Codex Theme Wardrobe 2.2.8 live theme gallery" width="1100">
+  <img src="docs/images/theme-gallery-safe.png" alt="Codex Theme Wardrobe 2.2.9 live theme gallery" width="1100">
 </p>
 
 One image, one mood. The images below are the matching prototype references:
@@ -89,6 +89,11 @@ One image, one mood. The images below are the matching prototype references:
 - **Restorable** — One-click restore to the stock look.
 - **Safer path** — Local-loopback CDP inject only. No official binary or signature changes.
 
+## What's new in 2.2.9
+
+- Light themes now isolate native Codex tokens from a dark host shell, preventing black headers, dark output cards, and unreadable text.
+- Removed the black gradient and dark band around the composer, with stronger contrast for the send button and its icon.
+
 ## Quick start
 
 Platform scripts are ready — different plumbing, same goal: theme Codex.
@@ -104,7 +109,7 @@ More detail:
 - Windows: [`windows/SKILL.md`](./windows/SKILL.md)
 - Paths: [`docs/platforms.md`](./docs/platforms.md)
 - Project notes: [`docs/PROJECT.md`](./docs/PROJECT.md)
-- `2.2.8` cross-platform install validation: [`docs/RELEASE-VALIDATION-v2.2.8.md`](./docs/RELEASE-VALIDATION-v2.2.8.md)
+- `2.2.9` cross-platform install validation: [`docs/RELEASE-VALIDATION-v2.2.9.md`](./docs/RELEASE-VALIDATION-v2.2.9.md)
 
 ## Feedback & contributions
 

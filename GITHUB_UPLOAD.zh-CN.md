@@ -20,7 +20,7 @@ gh auth status
 ```bash
 git init -b main
 git add .
-git commit -m "Publish verified Codex Theme Wardrobe 2.2.8"
+git commit -m "Keep light themes readable inside Codex dark shell"
 gh repo create myxsf/CodexThemeSwitch --public --source=. --remote=origin --push
 ```
 
@@ -29,13 +29,13 @@ gh repo create myxsf/CodexThemeSwitch --public --source=. --remote=origin --push
 仓库推送完成后，在本发布目录执行：
 
 ```bash
-gh release create v2.2.8 \
-  release/Codex-Theme-Wardrobe-v2.2.8-macos-universal.zip \
-  release/Codex-Theme-Wardrobe-v2.2.8-windows.zip \
-  release/Codex-Theme-Wardrobe-v2.2.8-background-assets.zip \
+gh release create v2.2.9 \
+  release/Codex-Theme-Wardrobe-v2.2.9-macos-universal.zip \
+  release/Codex-Theme-Wardrobe-v2.2.9-windows.zip \
+  release/Codex-Theme-Wardrobe-v2.2.9-background-assets.zip \
   release/SHA256SUMS.txt \
   --repo myxsf/CodexThemeSwitch \
-  --title "Codex Theme Wardrobe 2.2.8" \
+  --title "Codex Theme Wardrobe 2.2.9" \
   --notes-file release/README.zh-CN.md
 ```
 

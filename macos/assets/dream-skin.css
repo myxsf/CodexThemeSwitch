@@ -1351,9 +1351,44 @@ html.codex-dream-skin[data-dream-palette="light"] {
   color-scheme: light !important;
 }
 
+/* Rebind Codex semantic tokens when a light catalog palette is running inside
+   the Electron dark shell. This covers native fades, scroll controls, menus,
+   editor text and future components that consume the same upstream tokens. */
+html.codex-dream-skin[data-dream-palette="light"] {
+  --color-token-main-surface-primary: var(--ds-panel);
+  --color-token-bg-primary: var(--ds-panel);
+  --color-token-bg-secondary: var(--ds-panel-2);
+  --color-token-bg-tertiary: color-mix(in srgb, var(--ds-panel-2) 88%, var(--ds-panel));
+  --color-token-dropdown-background: var(--ds-panel);
+  --color-token-dropdown-foreground: var(--ds-text);
+  --color-token-input-background: color-mix(in srgb, var(--ds-panel) 97%, white 3%);
+  --color-token-input-border: var(--ds-line);
+  --color-token-input-foreground: var(--ds-text);
+  --color-token-input-placeholder-foreground: color-mix(in srgb, var(--ds-text) 78%, var(--ds-panel));
+  --color-token-foreground: var(--ds-text);
+  --color-token-icon-foreground: color-mix(in srgb, var(--ds-text) 88%, var(--ds-panel));
+  --color-token-text-primary: var(--ds-text);
+  --color-token-text-secondary: color-mix(in srgb, var(--ds-text) 86%, var(--ds-panel));
+  --color-token-text-tertiary: color-mix(in srgb, var(--ds-text) 78%, var(--ds-panel));
+  --color-token-description-foreground: color-mix(in srgb, var(--ds-text) 78%, var(--ds-panel));
+  --color-token-conversation-body: color-mix(in srgb, var(--ds-text) 90%, var(--ds-panel));
+  --color-token-conversation-header: color-mix(in srgb, var(--ds-text) 82%, var(--ds-panel));
+  --color-token-conversation-summary-leading: color-mix(in srgb, var(--ds-text) 78%, var(--ds-panel));
+  --color-token-conversation-summary-trailing: color-mix(in srgb, var(--ds-text) 78%, var(--ds-panel));
+  --color-token-text-preformat-foreground: var(--ds-text);
+  --color-token-text-preformat-background: color-mix(in srgb, var(--ds-panel-2) 82%, transparent);
+  --color-token-text-code-block-background: color-mix(in srgb, var(--ds-panel-2) 90%, var(--ds-panel));
+  --color-token-text-link-foreground: color-mix(in srgb, var(--ds-text) 86%, var(--ds-green));
+  --color-token-text-link-active-foreground: var(--ds-text);
+}
+
 html.codex-dream-skin[data-dream-palette="light"] body,
 html.codex-dream-skin[data-dream-palette="light"] main.main-surface {
   color: var(--ds-text) !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface {
+  box-shadow: inset 0 1px rgba(255,255,255,.72), -10px 0 34px color-mix(in srgb, var(--ds-green) 12%, transparent) !important;
 }
 
 html.codex-dream-skin[data-dream-palette="light"] aside.app-shell-left-panel,
@@ -2675,4 +2710,118 @@ html.codex-dream-skin[data-dream-theme-id="skin-08"] .composer-surface-chrome .P
     background-size: 100% 100%, 100% auto !important;
   }
 
+}
+
+/* Light-palette native surface guard. Codex can keep its dark host shell while
+   a catalog theme is light; in that mixed state native headers, floating
+   output cards, rich-text lists, and the sticky composer must follow the
+   theme palette instead of exposing the Electron dark root. */
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface > header.app-header-tint {
+  background-color: color-mix(in srgb, var(--ds-panel) 96%, white 4%) !important;
+  background-image: none !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--ds-green) 16%, transparent) !important;
+  color: var(--ds-text) !important;
+  box-shadow: 0 1px 10px color-mix(in srgb, var(--ds-green) 8%, transparent) !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface > header.app-header-tint
+  :where(button, a, span, div, p, strong, small, label) {
+  color: var(--ds-text) !important;
+  -webkit-text-fill-color: var(--ds-text) !important;
+  text-shadow: none !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface > header.app-header-tint svg {
+  color: var(--ds-muted) !important;
+  opacity: 1 !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] body [class~="bg-token-dropdown-background"] {
+  background-color: color-mix(in srgb, var(--ds-panel) 96%, white 4%) !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--ds-green) 18%, transparent) !important;
+  color: var(--ds-text) !important;
+  box-shadow: 0 10px 28px rgba(35, 73, 77, .12), 0 0 0 1px color-mix(in srgb, var(--ds-green) 16%, transparent) !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] body [class~="bg-token-dropdown-background"]
+  :where(button, a, span, div, p, strong, small, label, svg) {
+  color: var(--ds-text) !important;
+  -webkit-text-fill-color: var(--ds-text) !important;
+  text-shadow: none !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] body [class~="bg-token-dropdown-background"]
+  [class~="text-token-text-tertiary"] {
+  color: var(--ds-muted) !important;
+  -webkit-text-fill-color: var(--ds-muted) !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface:not(.dream-skin-home-shell)
+  .thread-scroll-container :where(p, li, blockquote, strong, em, th, td) {
+  color: var(--ds-text) !important;
+  -webkit-text-fill-color: var(--ds-text) !important;
+  text-shadow: none !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface:not(.dream-skin-home-shell)
+  .thread-scroll-container li::marker {
+  color: var(--ds-green) !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] .thread-scroll-container
+  .sticky.bottom-0:has(.composer-surface-chrome) {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--ds-panel) 76%, transparent) 24%,
+    color-mix(in srgb, var(--ds-panel) 98%, transparent) 100%
+  ) !important;
+}
+
+/* Codex 26.715 adds a second, absolutely positioned dark-host fade behind the
+   task composer. It sits outside .composer-surface-chrome, so neutralize that
+   token layer and let the light sticky fade above provide the scroll mask. */
+html.codex-dream-skin[data-dream-palette="light"] main.main-surface:not(.dream-skin-home-shell)
+  .sticky.bottom-0:has(.composer-surface-chrome)
+  > .pointer-events-none.absolute.inset-x-0.bottom-0.z-0
+  > :is(
+    [class~="from-token-main-surface-primary"],
+    [class~="from-token-bg-primary"]
+  ) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html.codex-dream-skin[data-dream-palette="light"] .composer-surface-chrome {
+  background-color: color-mix(in srgb, var(--ds-panel) 98%, white 2%) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* Broad composer text rules must not recolor controls that sit on the accent
+   fill. Choose a per-palette foreground with at least 3:1 icon contrast. */
+html.codex-dream-skin:is(
+  [data-dream-theme-id="skin-01"],
+  [data-dream-theme-id="skin-04"],
+  [data-dream-theme-id="skin-05"],
+  [data-dream-theme-id="skin-07"],
+  [data-dream-theme-id="skin-08"]
+) {
+  --ds-on-accent: #071116;
+}
+
+html.codex-dream-skin:is(
+  [data-dream-theme-id="skin-02"],
+  [data-dream-theme-id="skin-03"],
+  [data-dream-theme-id="skin-06"]
+) {
+  --ds-on-accent: #ffffff;
+}
+
+html.codex-dream-skin[data-dream-theme-id^="skin-"] button[class~="bg-token-foreground"],
+html.codex-dream-skin[data-dream-theme-id^="skin-"] button[class~="bg-token-foreground"] * {
+  color: var(--ds-on-accent) !important;
+  -webkit-text-fill-color: var(--ds-on-accent) !important;
 }

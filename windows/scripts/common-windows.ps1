@@ -10,7 +10,7 @@ $script:CatalogPath = Join-Path $script:RepositoryRoot 'themes\catalog.json'
 $script:InjectorPath = Join-Path $PSScriptRoot 'injector.mjs'
 $script:InjectorLog = Join-Path $script:StateRoot 'injector.log'
 $script:InjectorErrorLog = Join-Path $script:StateRoot 'injector-error.log'
-$script:SkinVersion = '2.2.8'
+$script:SkinVersion = '2.2.9'
 
 function New-SkinStateRoot {
   New-Item -ItemType Directory -Force -Path $script:StateRoot | Out-Null

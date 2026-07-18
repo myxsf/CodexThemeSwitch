@@ -3,6 +3,12 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Optional published release version to smoke-test (for example 2.2.9)
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -27,14 +33,38 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download published Windows release
+      - name: Build current-source Windows release archive
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.release_version == '' }}
         shell: pwsh
         run: |
+          $version = (Get-Content -LiteralPath '.\windows\VERSION' -Raw).Trim()
+          $stage = Join-Path $env:RUNNER_TEMP 'current-release-stage'
+          $bundle = Join-Path $stage "Codex Theme Wardrobe $version"
+          $archive = Join-Path $env:RUNNER_TEMP "Codex-Theme-Wardrobe-v$version-windows.zip"
+          Remove-Item -LiteralPath $stage, $archive -Recurse -Force -ErrorAction SilentlyContinue
+          New-Item -ItemType Directory -Force -Path (Join-Path $bundle 'windows'), (Join-Path $bundle 'themes'), (Join-Path $bundle 'macos') | Out-Null
+          Get-ChildItem -LiteralPath '.\windows' -Force | Where-Object { $_.Name -ne 'release' } |
+            ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $bundle 'windows') -Recurse -Force }
+          Get-ChildItem -LiteralPath '.\themes' -Force |
+            ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $bundle 'themes') -Recurse -Force }
+          Copy-Item -LiteralPath '.\macos\themes' -Destination (Join-Path $bundle 'macos\themes') -Recurse -Force
+          Copy-Item -LiteralPath '.\README.md' -Destination (Join-Path $bundle 'README.zh-CN.md')
+          Copy-Item -LiteralPath '.\windows\Install Codex Theme Wardrobe.cmd' -Destination (Join-Path $bundle 'Install Codex Theme Wardrobe.cmd')
+          Compress-Archive -LiteralPath $bundle -DestinationPath $archive -CompressionLevel Optimal
+          "ARCHIVE_PATH=$archive" >> $env:GITHUB_ENV
+      - name: Download published Windows release
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.release_version != '' }}
+        shell: pwsh
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP "Codex-Theme-Wardrobe-v$env:RELEASE_VERSION-windows.zip"
           Invoke-WebRequest `
-            -Uri "https://github.com/myxsf/CodexThemeSwitch/releases/download/v2.2.8/Codex-Theme-Wardrobe-v2.2.8-windows.zip" `
-            -OutFile "$env:RUNNER_TEMP\Codex-Theme-Wardrobe-v2.2.8-windows.zip"
+            -Uri "https://github.com/myxsf/CodexThemeSwitch/releases/download/v$env:RELEASE_VERSION/Codex-Theme-Wardrobe-v$env:RELEASE_VERSION-windows.zip" `
+            -OutFile $archive
+          "ARCHIVE_PATH=$archive" >> $env:GITHUB_ENV
       - name: Simulate clean Windows install
         shell: powershell
         run: |
           .\windows\tests\release-install-smoke.ps1 `
-            -ArchivePath "$env:RUNNER_TEMP\Codex-Theme-Wardrobe-v2.2.8-windows.zip"
+            -ArchivePath $env:ARCHIVE_PATH

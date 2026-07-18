@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml"><img src="https://github.com/myxsf/CodexThemeSwitch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.8"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
+  <a href="https://github.com/myxsf/CodexThemeSwitch/releases/tag/v2.2.9"><img src="https://img.shields.io/github/v/release/myxsf/CodexThemeSwitch" alt="Release"></a>
 </p>
 
 ## 项目归属与赞助
@@ -33,10 +33,10 @@
 
 ## 效果预览
 
-下面是 `2.2.8` 的脱敏实机截图，仅保留 Hero 与原生建议卡区域：
+下面是 `2.2.9` 的脱敏实机截图，仅保留 Hero 与原生建议卡区域：
 
 <p align="center">
-  <img src="docs/images/theme-gallery-safe.png" alt="Codex Theme Wardrobe 2.2.8 实机主题联系表" width="1100">
+  <img src="docs/images/theme-gallery-safe.png" alt="Codex Theme Wardrobe 2.2.9 实机主题联系表" width="1100">
 </p>
 
 一张图，一种心情。下面是对应的原型参考：
@@ -88,6 +88,11 @@
 - **可恢复**：一键还原官方外观
 - **相对安全**：本机回环 CDP 注入，不改官方二进制与签名
 
+## 2.2.9 更新
+
+- 浅色主题隔离 Codex 深色宿主的原生 token，不再出现黑色顶栏、深色输出卡或难以辨认的正文
+- 清除 composer 外围黑色渐变与底带，并提高发送按钮及图标的对比度
+
 ## 快速开始
 
 仓库内按平台放了现成脚本（实现细节不同，效果都是「主题化 Codex」）：
@@ -103,7 +108,7 @@
 - Windows：[`windows/SKILL.md`](./windows/SKILL.md)
 - 路径对照：[`docs/platforms.md`](./docs/platforms.md)
 - 项目记录：[`docs/PROJECT.md`](./docs/PROJECT.md)
-- `2.2.8` 跨平台安装验证：[`docs/RELEASE-VALIDATION-v2.2.8.md`](./docs/RELEASE-VALIDATION-v2.2.8.md)
+- `2.2.9` 跨平台安装验证：[`docs/RELEASE-VALIDATION-v2.2.9.md`](./docs/RELEASE-VALIDATION-v2.2.9.md)
 
 ## 反馈与贡献
 
