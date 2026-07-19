@@ -18,7 +18,9 @@
 - Windows 发布烟测强制把包内 Node 标记为不可执行，验证安装器创建本地副本并能正常运行 `--version`。
 - 随后继续执行 WPF 衣橱编译/启动、十个主题入口、二次原子安装、恢复原皮与卸载清理。
 - macOS 与 Windows 静态测试继续通过。
-- 公开 Release ZIP 的最终 GitHub Actions 运行链接将在发布后补入。
+- 当前源码生成的 Windows ZIP 已强制模拟包内 Node 拒绝访问，并通过本地副本、WPF 编译/启动、重装、恢复和卸载测试：
+  <https://github.com/myxsf/CodexThemeSwitch/actions/runs/29669812169>
+- 公开 Release ZIP 的最终下载复测链接将在发布后补入。
 
 ## 验证边界
 
