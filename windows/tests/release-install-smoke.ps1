@@ -70,9 +70,8 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   if (-not (Test-Path -LiteralPath $statePath)) { throw 'Initial runtime state is missing.' }
   $localNode = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\runtime\node.exe'
   if (-not (Test-Path -LiteralPath $localNode)) { throw 'Package-blocked Node.js was not copied to the local runtime fallback.' }
-  $localVersion = [string](& $localNode --version | Select-Object -First 1)
-  $localVersionMatch = [regex]::Match($localVersion.Trim(), '^v(\d+)\.')
-  if ($LASTEXITCODE -ne 0 -or -not $localVersionMatch.Success -or [int]$localVersionMatch.Groups[1].Value -lt 20) {
+  . (Join-Path $installed 'windows\scripts\common-windows.ps1')
+  if (-not (Test-NodeRuntime -Path $localNode)) {
     throw 'The copied local Node.js fallback is not executable or is too old.'
   }
   $desktopPath = [Environment]::GetFolderPath('Desktop')
