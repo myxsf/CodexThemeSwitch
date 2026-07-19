@@ -10,6 +10,7 @@ $oldLocalAppData = $env:LOCALAPPDATA
 $oldAppData = $env:APPDATA
 $oldUserProfile = $env:USERPROFILE
 $oldSmokePackage = $env:CODEX_DREAM_SKIN_SMOKE_PACKAGE
+$oldDenyPackageNode = $env:CODEX_DREAM_SKIN_DENY_PACKAGE_NODE
 Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $work | Out-Null
 
@@ -42,6 +43,7 @@ try {
 </Package>
 '@ | Set-Content -LiteralPath (Join-Path $fakePackage 'AppxManifest.xml') -Encoding UTF8
   $env:CODEX_DREAM_SKIN_SMOKE_PACKAGE = $fakePackage
+  $env:CODEX_DREAM_SKIN_DENY_PACKAGE_NODE = '1'
 
   $common = Join-Path $bundle.FullName 'windows\scripts\common-windows.ps1'
   @'
@@ -66,6 +68,12 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   $statePath = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\state.json'
   if (-not (Test-Path -LiteralPath $wardrobe)) { throw 'Installed WPF wardrobe executable is missing.' }
   if (-not (Test-Path -LiteralPath $statePath)) { throw 'Initial runtime state is missing.' }
+  $localNode = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\runtime\node.exe'
+  if (-not (Test-Path -LiteralPath $localNode)) { throw 'Package-blocked Node.js was not copied to the local runtime fallback.' }
+  $localVersion = (& $localNode --version | Select-Object -First 1)
+  if ($LASTEXITCODE -ne 0 -or $localVersion -notmatch '^v(\d+)\.' -or [int]$Matches[1] -lt 20) {
+    throw 'The copied local Node.js fallback is not executable or is too old.'
+  }
   $desktopPath = [Environment]::GetFolderPath('Desktop')
   if ([string]::IsNullOrWhiteSpace($desktopPath)) { $desktopPath = Join-Path $env:USERPROFILE 'Desktop' }
   $desktopShortcut = Join-Path $desktopPath 'Codex Theme Wardrobe.lnk'
@@ -112,5 +120,6 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   $env:APPDATA = $oldAppData
   $env:USERPROFILE = $oldUserProfile
   $env:CODEX_DREAM_SKIN_SMOKE_PACKAGE = $oldSmokePackage
+  $env:CODEX_DREAM_SKIN_DENY_PACKAGE_NODE = $oldDenyPackageNode
   Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
 }

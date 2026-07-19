@@ -390,7 +390,7 @@ done
 /usr/bin/grep -q 'original|off|none|stock' "$ROOT/scripts/theme-macos.sh"
 /usr/bin/grep -A2 'prince|little-prince|inspiration-universe' "$ROOT/scripts/switch-theme-macos.sh" | /usr/bin/grep -q 'skin-05'
 /usr/bin/grep -A2 'prince|little-prince|inspiration-universe|小王子' "$ROOT/scripts/theme-macos.sh" | /usr/bin/grep -q 'skin-05'
-/usr/bin/env -u HOME /bin/bash -c '. "$1/scripts/common-macos.sh"; [ -n "$HOME" ] && [ "$SKIN_VERSION" = "2.2.9" ]' _ "$ROOT"
+/usr/bin/env -u HOME /bin/bash -c '. "$1/scripts/common-macos.sh"; [ -n "$HOME" ] && [ "$SKIN_VERSION" = "2.2.10" ]' _ "$ROOT"
 DOCTOR_LABEL="doctor"
 if [ "${SKIP_LIVE_DOCTOR:-false}" != "true" ]; then
   "$ROOT/scripts/doctor-macos.sh" >/dev/null

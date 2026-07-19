@@ -10,7 +10,8 @@ $script:CatalogPath = Join-Path $script:RepositoryRoot 'themes\catalog.json'
 $script:InjectorPath = Join-Path $PSScriptRoot 'injector.mjs'
 $script:InjectorLog = Join-Path $script:StateRoot 'injector.log'
 $script:InjectorErrorLog = Join-Path $script:StateRoot 'injector-error.log'
-$script:SkinVersion = '2.2.9'
+$script:SkinVersion = '2.2.10'
+$script:LocalRuntimeRoot = Join-Path $script:StateRoot 'runtime'
 
 function New-SkinStateRoot {
   New-Item -ItemType Directory -Force -Path $script:StateRoot | Out-Null
@@ -52,9 +53,42 @@ function Resolve-CodexExecutable {
   return (Get-Item -LiteralPath $fallback).FullName
 }
 
+function Test-NodeRuntime {
+  param([string]$Path)
+  if ([string]::IsNullOrWhiteSpace($Path) -or -not (Test-Path -LiteralPath $Path -PathType Leaf)) { return $false }
+  if ($env:CODEX_DREAM_SKIN_DENY_PACKAGE_NODE -eq '1' -and
+      -not [string]::IsNullOrWhiteSpace($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) -and
+      [IO.Path]::GetFullPath($Path).StartsWith([IO.Path]::GetFullPath($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE), [StringComparison]::OrdinalIgnoreCase)) {
+    return $false
+  }
+  try {
+    $version = (& $Path --version 2>$null | Select-Object -First 1)
+    return $LASTEXITCODE -eq 0 -and [string]$version -match '^v(\d+)\.' -and [int]$Matches[1] -ge 20
+  } catch { return $false }
+}
+
+function Install-LocalNodeRuntime {
+  param([string]$SourcePath)
+  if ([string]::IsNullOrWhiteSpace($SourcePath) -or -not (Test-Path -LiteralPath $SourcePath -PathType Leaf)) { return $null }
+  New-Item -ItemType Directory -Force -Path $script:LocalRuntimeRoot | Out-Null
+  $target = Join-Path $script:LocalRuntimeRoot 'node.exe'
+  $temporary = "$target.$PID.tmp"
+  try {
+    Copy-Item -LiteralPath $SourcePath -Destination $temporary -Force
+    Unblock-File -LiteralPath $temporary -ErrorAction SilentlyContinue
+    Move-Item -LiteralPath $temporary -Destination $target -Force
+    if (Test-NodeRuntime -Path $target) { return (Get-Item -LiteralPath $target).FullName }
+  } catch {
+    Remove-Item -LiteralPath $temporary -Force -ErrorAction SilentlyContinue
+  }
+  return $null
+}
+
 function Resolve-NodeRuntime {
   param($Package)
   if (-not $Package) { $Package = Resolve-CodexPackage }
+  $localRuntime = Join-Path $script:LocalRuntimeRoot 'node.exe'
+  if (Test-NodeRuntime -Path $localRuntime) { return (Get-Item -LiteralPath $localRuntime).FullName }
   $candidates = @(
     (Join-Path $Package.InstallLocation 'app\resources\cua_node\bin\node.exe'),
     (Join-Path $Package.InstallLocation 'app\Resources\cua_node\bin\node.exe'),
@@ -62,19 +96,20 @@ function Resolve-NodeRuntime {
     (Join-Path $Package.InstallLocation 'app\resources\cua_node\node.exe'),
     (Join-Path $Package.InstallLocation 'app\Resources\cua_node\node.exe')
   )
+  $copyableCandidate = $null
   foreach ($candidate in $candidates) {
-    if (Test-Path -LiteralPath $candidate) {
-      $version = & $candidate --version
-      if ($LASTEXITCODE -eq 0 -and $version -match '^v(\d+)\.' -and [int]$Matches[1] -ge 20) { return (Get-Item $candidate).FullName }
-    }
+    if (-not (Test-Path -LiteralPath $candidate -PathType Leaf)) { continue }
+    if (-not $copyableCandidate) { $copyableCandidate = $candidate }
+    if (Test-NodeRuntime -Path $candidate) { return (Get-Item -LiteralPath $candidate).FullName }
+  }
+  if ($copyableCandidate) {
+    $copiedRuntime = Install-LocalNodeRuntime -SourcePath $copyableCandidate
+    if ($copiedRuntime) { return $copiedRuntime }
   }
   $command = Get-Command node.exe -ErrorAction SilentlyContinue
   if (-not $command) { $command = Get-Command node -ErrorAction SilentlyContinue }
-  if ($command) {
-    $version = & $command.Source --version
-    if ($LASTEXITCODE -eq 0 -and $version -match '^v(\d+)\.' -and [int]$Matches[1] -ge 20) { return $command.Source }
-  }
-  throw 'Node.js 20+ was not found in the Codex package or PATH. Reinstall/update official Codex first.'
+  if ($command -and (Test-NodeRuntime -Path $command.Source)) { return $command.Source }
+  throw "Node.js 20+ could not run from the Codex package or PATH. Windows may be blocking the Store package runtime. Repair/update official Codex, then rerun the wardrobe installer. Checked local fallback: $localRuntime"
 }
 
 function Get-CodexProcesses {

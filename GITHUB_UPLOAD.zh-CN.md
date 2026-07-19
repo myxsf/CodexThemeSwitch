@@ -29,13 +29,13 @@ gh repo create myxsf/CodexThemeSwitch --public --source=. --remote=origin --push
 仓库推送完成后，在本发布目录执行：
 
 ```bash
-gh release create v2.2.9 \
-  release/Codex-Theme-Wardrobe-v2.2.9-macos-universal.zip \
-  release/Codex-Theme-Wardrobe-v2.2.9-windows.zip \
-  release/Codex-Theme-Wardrobe-v2.2.9-background-assets.zip \
+gh release create v2.2.10 \
+  release/Codex-Theme-Wardrobe-v2.2.10-macos-universal.zip \
+  release/Codex-Theme-Wardrobe-v2.2.10-windows.zip \
+  release/Codex-Theme-Wardrobe-v2.2.10-background-assets.zip \
   release/SHA256SUMS.txt \
   --repo myxsf/CodexThemeSwitch \
-  --title "Codex Theme Wardrobe 2.2.9" \
+  --title "Codex Theme Wardrobe 2.2.10" \
   --notes-file release/README.zh-CN.md
 ```
 

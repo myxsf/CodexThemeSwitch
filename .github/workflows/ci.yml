@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       release_version:
-        description: Optional published release version to smoke-test (for example 2.2.9)
+        description: Optional published release version to smoke-test (for example 2.2.10)
         required: false
         type: string
 
