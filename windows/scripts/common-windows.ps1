@@ -62,8 +62,21 @@ function Test-NodeRuntime {
     return $false
   }
   try {
-    $version = (& $Path --version 2>$null | Select-Object -First 1)
-    return $LASTEXITCODE -eq 0 -and [string]$version -match '^v(\d+)\.' -and [int]$Matches[1] -ge 20
+    $startInfo = New-Object Diagnostics.ProcessStartInfo
+    $startInfo.FileName = [IO.Path]::GetFullPath($Path)
+    $startInfo.Arguments = '--version'
+    $startInfo.UseShellExecute = $false
+    $startInfo.CreateNoWindow = $true
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+    $process = New-Object Diagnostics.Process
+    $process.StartInfo = $startInfo
+    if (-not $process.Start()) { return $false }
+    $standardOutput = $process.StandardOutput.ReadToEnd()
+    $null = $process.StandardError.ReadToEnd()
+    $process.WaitForExit()
+    $versionMatch = [regex]::Match($standardOutput.Trim(), '^v(\d+)\.')
+    return $process.ExitCode -eq 0 -and $versionMatch.Success -and [int]$versionMatch.Groups[1].Value -ge 20
   } catch { return $false }
 }
 
