@@ -70,8 +70,9 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   if (-not (Test-Path -LiteralPath $statePath)) { throw 'Initial runtime state is missing.' }
   $localNode = Join-Path $env:LOCALAPPDATA 'CodexDreamSkinStudio\runtime\node.exe'
   if (-not (Test-Path -LiteralPath $localNode)) { throw 'Package-blocked Node.js was not copied to the local runtime fallback.' }
-  $localVersion = (& $localNode --version | Select-Object -First 1)
-  if ($LASTEXITCODE -ne 0 -or $localVersion -notmatch '^v(\d+)\.' -or [int]$Matches[1] -lt 20) {
+  $localVersion = [string](& $localNode --version | Select-Object -First 1)
+  $localVersionMatch = [regex]::Match($localVersion.Trim(), '^v(\d+)\.')
+  if ($LASTEXITCODE -ne 0 -or -not $localVersionMatch.Success -or [int]$localVersionMatch.Groups[1].Value -lt 20) {
     throw 'The copied local Node.js fallback is not executable or is too old.'
   }
   $desktopPath = [Environment]::GetFolderPath('Desktop')
@@ -84,6 +85,9 @@ if ($env:CODEX_DREAM_SKIN_SMOKE_PACKAGE) {
   $state = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
   if ($state.activeThemeId -ne 'original' -or $state.session -ne 'off' -or $state.port -ne 19335) {
     throw 'Fresh install did not initialize original/off state.'
+  }
+  if (-not [IO.Path]::GetFullPath([string]$state.nodePath).Equals([IO.Path]::GetFullPath($localNode), [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Fresh install did not persist the copied local Node.js fallback.'
   }
 
   $themes = (& powershell.exe -NoProfile -ExecutionPolicy Bypass -File $themeScript list -Json | Out-String) | ConvertFrom-Json
